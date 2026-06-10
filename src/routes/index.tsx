@@ -16,6 +16,7 @@ import {
   Flag,
 } from "lucide-react";
 import coverAsset from "@/assets/rage-comics-cover.png.asset.json";
+import logoAsset from "@/assets/amazon-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -62,8 +63,7 @@ function Index() {
       <header className="bg-[#131921] text-white">
         <div className="flex items-center px-2 h-[60px] gap-2">
           <a className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
-            <span className="text-2xl font-bold">amazon</span>
-            <span className="text-xs mt-3">.co.uk</span>
+            <img src={logoAsset.url} alt="Amazon" className="h-9 w-auto" />
           </a>
           <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1" />
