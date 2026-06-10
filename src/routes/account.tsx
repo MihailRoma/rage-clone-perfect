@@ -408,6 +408,56 @@ function AccountPage() {
       <footer className="mt-10 bg-[#232f3e] text-white text-xs text-center py-6">
         © 1996-2026, Amazon.com, Inc. or its affiliates
       </footer>
+
+      {editOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setEditOpen(false)}>
+          <div className="bg-white rounded-md shadow-2xl w-full max-w-lg" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200">
+              <h2 className="text-lg font-bold">Edit your public profile</h2>
+              <button onClick={() => setEditOpen(false)} className="text-gray-500 hover:text-gray-800 text-xl leading-none">×</button>
+            </div>
+            <div className="px-5 py-4 space-y-4">
+              <label className="block">
+                <span className="text-sm font-bold">Display name</span>
+                <input
+                  value={draft.name}
+                  onChange={(e) => setDraft({ ...draft, name: e.target.value })}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold">Location</span>
+                <input
+                  value={draft.location}
+                  onChange={(e) => setDraft({ ...draft, location: e.target.value })}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold">Website</span>
+                <input
+                  value={draft.website}
+                  onChange={(e) => setDraft({ ...draft, website: e.target.value })}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold">About</span>
+                <textarea
+                  value={draft.about}
+                  onChange={(e) => setDraft({ ...draft, about: e.target.value })}
+                  rows={5}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+            </div>
+            <div className="flex justify-end gap-2 px-5 py-3 border-t border-gray-200 bg-[#f7f7f7] rounded-b-md">
+              <button onClick={() => setEditOpen(false)} className="px-4 py-1.5 border border-gray-400 rounded-full text-sm bg-white hover:bg-gray-50">Cancel</button>
+              <button onClick={saveEdit} className="px-5 py-1.5 rounded-full text-sm font-medium bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] shadow-sm">Save</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
