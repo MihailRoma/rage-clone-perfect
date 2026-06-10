@@ -160,35 +160,6 @@ function AccountPage() {
   const saveEdit = () => { setProfile(draft); setEditOpen(false); };
   return (
     <div className="min-h-screen bg-white text-[#0F1111] text-sm">
-      {/* SiteStripe */}
-      <div className="bg-[#fcfcfc] border-b-2 border-[#febd69] text-xs">
-
-        <div className="flex items-center px-4 h-12 gap-6">
-          <div className="leading-tight">
-            <div className="font-bold">Amazon Associates</div>
-            <div className="text-[#007185] font-bold">SiteStripe</div>
-          </div>
-          <div className="leading-tight">
-            <div className="text-[#565959]">Get Link:</div>
-            <div className="flex gap-3"><span className="text-[#007185] font-bold">Text</span><span className="text-gray-400">Image</span><span className="text-gray-400">Text+Image</span></div>
-          </div>
-          <div className="leading-tight">
-            <div className="text-[#565959]">Native Shopping Ads <span className="text-pink-500">(New)</span></div>
-            <div className="text-gray-400">Custom</div>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="text-[#565959]">Share:</span>
-            <span className="w-6 h-6 rounded-full bg-[#1877F2] text-white flex items-center justify-center font-bold">f</span>
-            <span className="w-6 h-6 rounded-full bg-[#1DA1F2] text-white flex items-center justify-center text-[10px]">𝕏</span>
-          </div>
-          <div className="text-[#565959]">Try Mobile GetLink, a tool to create associate link...</div>
-          <div className="ml-auto flex items-center gap-4">
-            <a className="text-[#007185]">Earnings</a>
-            <a className="text-[#007185]">Help</a>
-            <span>⚙</span>
-          </div>
-        </div>
-      </div>
 
       {/* Top nav */}
       <header className="bg-[#131921] text-white">
