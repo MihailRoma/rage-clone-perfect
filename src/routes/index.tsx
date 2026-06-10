@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search,
   MapPin,
@@ -89,10 +89,65 @@ function Index() {
             <span className="font-bold text-sm">EN</span>
             <ChevronDown className="w-3 h-3 mt-2 text-[#cccccc]" />
           </a>
-          <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
-            <div className="text-xs">Hello, Alex</div>
-            <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
-          </a>
+          <div className="relative group h-[50px]">
+            <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent group-hover:border-white rounded-sm leading-tight cursor-pointer">
+              <div className="text-xs">Hello, Alex</div>
+              <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
+            </a>
+            {/* Dropdown */}
+            <div className="absolute right-0 top-full z-50 hidden group-hover:block text-[#0F1111]">
+              <div className="w-3 h-3 bg-white rotate-45 absolute -top-1 right-24 border-t border-l border-gray-200" />
+              <div className="bg-white shadow-2xl border border-gray-200 rounded-sm flex p-4 gap-6 min-w-[700px]">
+                {/* Your Lists */}
+                <div className="w-48 border-r border-gray-200 pr-6">
+                  <h3 className="font-bold text-base mb-2">Your Lists</h3>
+                  <ul className="space-y-1.5 text-sm">
+                    <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Wish List</a></li>
+                    <li className="pt-2"><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Create a List</a></li>
+                    <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Find a List or Registry</a></li>
+                    <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">AmazonSmile Charity Lists</a></li>
+                    <li className="pt-1">
+                      <a className="hover:text-[#C7511F] hover:underline cursor-pointer">Alexa Shopping List</a>
+                      <div className="text-xs text-[#565959]">2 items</div>
+                    </li>
+                  </ul>
+                </div>
+                {/* Your Account */}
+                <div className="w-60">
+                  <h3 className="font-bold text-base mb-2">Your Account</h3>
+                  <ul className="space-y-1.5 text-sm">
+                    <li>
+                      <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">
+                        Account
+                      </Link>
+                    </li>
+                    {[
+                      "Orders",
+                      "Recommendations",
+                      "Browsing History",
+                      "Watchlist",
+                      "Video Purchases & Rentals",
+                      "Kindle Unlimited",
+                      "Content & Devices",
+                      "Subscribe & Save Items",
+                      "Memberships & Subscriptions",
+                      "Prime Membership",
+                      "Amazon Credit Cards",
+                      "Music Library",
+                      "Start a Selling Account",
+                      "Register for a Business Account",
+                      "Switch Accounts",
+                      "Sign Out",
+                    ].map((item) => (
+                      <li key={item}>
+                        <a className="hover:text-[#C7511F] hover:underline cursor-pointer">{item}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
           <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
             <div className="text-xs">Returns</div>
             <div className="font-bold">& Orders</div>
