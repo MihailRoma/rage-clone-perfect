@@ -20,7 +20,7 @@ import coverImg from "@/assets/rage-comics-cover.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rage Comics - The Definitive Collection, Vol. 2 (400+ comics) eBook : Derpstein, F.U.: Amazon.in: Kindle Store" },
+      { title: "Rage Comics - The Definitive Collection, Vol. 2 (400+ comics) eBook : Derpstein, F.U.: Amazon.co.uk: Kindle Store" },
       { name: "description", content: "Rage Comics - The Definitive Collection, Vol. 2 (400+ comics) Kindle Edition by F.U. Derpstein." },
     ],
   }),
