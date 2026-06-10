@@ -50,7 +50,7 @@ const subNav = [
   "Prime Reading",
   "Categories",
   "Best Sellers",
-  "Indian language eBooks",
+  "English eBooks",
   "Content and devices",
   "Kindle Support",
 ];
