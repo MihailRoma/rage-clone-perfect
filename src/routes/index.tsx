@@ -16,6 +16,7 @@ import {
   Flag,
 } from "lucide-react";
 import coverAsset from "@/assets/rage-comics-cover.png.asset.json";
+import logoAsset from "@/assets/amazon-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -62,8 +63,7 @@ function Index() {
       <header className="bg-[#131921] text-white">
         <div className="flex items-center px-2 h-[60px] gap-2">
           <a className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
-            <span className="text-2xl font-bold">amazon</span>
-            <span className="text-xs mt-3">.co.uk</span>
+            <img src={logoAsset.url} alt="Amazon" className="h-9 w-auto" />
           </a>
           <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1" />
@@ -241,15 +241,50 @@ function Index() {
           <div className="mt-10 border-t border-gray-200 pt-5">
             <h2 className="text-lg font-bold">Product details</h2>
             <dl className="mt-3 text-sm space-y-1.5">
-              <div><dt className="inline font-bold">ASIN </dt><dd className="inline">: B007UJJDTS</dd></div>
-              <div><dt className="inline font-bold">Accessibility </dt><dd className="inline">: <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Learn more</a></dd></div>
-              <div><dt className="inline font-bold">Publication date </dt><dd className="inline">: 14 April 2012</dd></div>
+              <div><dt className="inline font-bold">Publisher </dt><dd className="inline">: Createspace Independent Pub</dd></div>
+              <div><dt className="inline font-bold">Publication date </dt><dd className="inline">: 2 November 2011</dd></div>
               <div><dt className="inline font-bold">Language </dt><dd className="inline">: English</dd></div>
-              <div><dt className="inline font-bold">File size </dt><dd className="inline">: 77.5 MB</dd></div>
               <div><dt className="inline font-bold">Print length </dt><dd className="inline">: 324 pages</dd></div>
+              <div><dt className="inline font-bold">ISBN-10 </dt><dd className="inline">: 1466481722</dd></div>
+              <div><dt className="inline font-bold">ISBN-13 </dt><dd className="inline">: 978-1466481725</dd></div>
+              <div><dt className="inline font-bold">Item Weight </dt><dd className="inline">: 249 g</dd></div>
+              <div><dt className="inline font-bold">Dimensions </dt><dd className="inline">: 14.61 x 2.54 x 23.5 cm</dd></div>
+              <div><dt className="inline font-bold">Best Sellers Rank </dt><dd className="inline">: #9,818 in <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Humour (Books)</a></dd></div>
+              <div className="flex items-center gap-2 pt-1">
+                <dt className="font-bold">Customer Reviews:</dt>
+                <dd className="flex items-center gap-1">
+                  <span>4.4</span>
+                  <div className="flex text-[#DE7921]">
+                    {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
+                    <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
+                  </div>
+                  <ChevronDown className="w-3 h-3 text-[#007185]" />
+                  <a className="text-[#007185] hover:text-[#C7511F] hover:underline">(188)</a>
+                </dd>
+              </div>
             </dl>
           </div>
+
+          {/* About the author */}
+          <div className="mt-10 border-t border-gray-200 pt-5">
+            <h2 className="text-lg font-bold">About the author</h2>
+            <p className="text-sm mt-2">Follow authors to get new release updates, plus improved recommendations.</p>
+            <div className="mt-5 flex gap-5">
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-32 h-32 rounded-full bg-[#dde4e6] flex items-center justify-center">
+                  <svg className="w-24 h-24 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+                </div>
+                <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
+              </div>
+              <div className="flex-1">
+                <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold text-lg">F.U. Derpstein</a>
+                <p className="text-sm mt-2">Discover more of the author's books, see similar authors, read book recommendations and more.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Buy box stays in right col — close the center wrapper */}
 
         {/* Buy box */}
         <aside className="col-span-3">
@@ -266,7 +301,112 @@ function Index() {
             Add to Wish List
           </button>
         </aside>
+
+        {/* Customer reviews — full width */}
+        <section className="col-span-12 mt-8 border-t border-gray-200 pt-6 grid grid-cols-12 gap-6">
+          <div className="col-span-3">
+            <h2 className="text-xl font-bold">Customer reviews</h2>
+            <div className="flex items-center gap-2 mt-3">
+              <div className="flex text-[#DE7921]">
+                {[0,1,2,3].map(i => <Star key={i} className="w-5 h-5 fill-[#DE7921]" />)}
+                <Star className="w-5 h-5 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
+              </div>
+              <span className="font-bold">4.4 out of 5</span>
+            </div>
+            <p className="text-xs text-[#565959] mt-1">188 global ratings</p>
+
+            <div className="mt-4 space-y-1.5 text-sm">
+              {[
+                { s: 5, p: 72 },
+                { s: 4, p: 12 },
+                { s: 3, p: 11 },
+                { s: 2, p: 2 },
+                { s: 1, p: 3 },
+              ].map((r) => (
+                <div key={r.s} className="flex items-center gap-2">
+                  <a className="text-[#007185] hover:text-[#C7511F] hover:underline w-12">{r.s} star</a>
+                  <div className="flex-1 h-5 bg-[#f0f2f2] border border-gray-300 rounded-sm overflow-hidden">
+                    <div className="h-full bg-[#FFA41C]" style={{ width: `${r.p}%` }} />
+                  </div>
+                  <span className="w-10 text-right">{r.p}%</span>
+                </div>
+              ))}
+            </div>
+
+            <a className="block mt-4 text-[#007185] hover:text-[#C7511F] hover:underline text-sm">How are ratings calculated?</a>
+
+            <h3 className="font-bold text-base mt-8">Review this product</h3>
+            <p className="text-sm mt-1">Share your thoughts with other customers</p>
+            <button className="mt-3 w-full border border-gray-300 rounded-lg py-2 text-sm bg-white hover:bg-gray-50 shadow-sm">
+              Write a product review
+            </button>
+          </div>
+
+          <div className="col-span-9">
+            <h3 className="font-bold text-base">Top reviews from United Kingdom</h3>
+            <div className="mt-4 space-y-8">
+              {[
+                {
+                  name: "mrs lock",
+                  stars: 5,
+                  title: "Great",
+                  meta: "Reviewed in the United Kingdom on 28 January 2014",
+                  body: "I bought this book for my daughter and she loves it. She's a big fan of the meme characters so I thought this would be a good idea for a Christmas gift and give her eyes a rest from reading the comic strips on the computer. You'd definitely have to be a fan of the rage characters to enjoy the book.",
+                },
+                {
+                  name: "Treye",
+                  stars: 5,
+                  title: "Great rage comic collection!",
+                  meta: "Reviewed in the United States on 28 November 2013",
+                  body: "Rage comics are undoubtedly my favourite thing on the Interwebz! Whoever F.U. Derpstein is collected the best rage comics and slapped them into one book that I have rated 5 STARRZZZ!",
+                },
+                {
+                  name: "Alexander",
+                  stars: 5,
+                  title: "cooool",
+                  meta: "Reviewed in Germany on 30 November 2024",
+                  body: "cooool",
+                },
+                {
+                  name: "javier",
+                  stars: 5,
+                  title: "Rage comics review",
+                  meta: "Reviewed in the United States on 14 April 2013",
+                  body: "This is a hilarious book and it's worth what you're paying for. So if you're debating whether to buy it or not, you should definitely buy this.",
+                },
+                {
+                  name: "chuck",
+                  stars: 5,
+                  title: "Great read, finished it in a night",
+                  meta: "Reviewed in the United States on 12 January 2013",
+                  body: "Hi this was really a great book of rage. Read half the book in one night and the other half on another.",
+                },
+              ].map((r) => (
+                <article key={r.name}>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600">
+                      {r.name.slice(0,1).toUpperCase()}
+                    </div>
+                    <span className="font-bold text-sm">{r.name}</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-2">
+                    <div className="flex text-[#DE7921]">
+                      {Array.from({ length: r.stars }).map((_, i) => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
+                    </div>
+                    <span className="font-bold text-sm">{r.title}</span>
+                  </div>
+                  <div className="text-xs text-[#565959] mt-1">{r.meta}</div>
+                  <div className="text-xs text-[#C7511F] font-bold mt-1">Verified Purchase</div>
+                  <p className="text-sm mt-2 leading-5">{r.body}</p>
+                  <button className="text-xs text-[#565959] mt-2 hover:text-[#C7511F]">Report</button>
+                </article>
+              ))}
+            </div>
+            <a className="inline-block mt-6 text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See more reviews</a>
+          </div>
+        </section>
       </main>
+
 
       <footer className="mt-10 bg-[#232f3e] text-white text-xs text-center py-6">
         © 1996-2026, Amazon.com, Inc. or its affiliates
