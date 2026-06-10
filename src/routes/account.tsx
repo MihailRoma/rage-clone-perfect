@@ -147,10 +147,22 @@ const reviews: Review[] = [
 ];
 
 function AccountPage() {
+  const [editOpen, setEditOpen] = useState(false);
+  const [profile, setProfile] = useState({
+    name: "F.U. Derpstein",
+    location: "Somewhere on the Interwebz",
+    website: "derpstein.example",
+    about:
+      "F.U. Derpstein is the curator behind Rage Comics — The Definitive Collection, the bestselling anthology series preserving the golden age of internet meme comics. Three volumes. 1,200+ comics. Trollface approved.",
+  });
+  const [draft, setDraft] = useState(profile);
+  const openEdit = () => { setDraft(profile); setEditOpen(true); };
+  const saveEdit = () => { setProfile(draft); setEditOpen(false); };
   return (
     <div className="min-h-screen bg-white text-[#0F1111] text-sm">
       {/* SiteStripe */}
       <div className="bg-[#fcfcfc] border-b-2 border-[#febd69] text-xs">
+
         <div className="flex items-center px-4 h-12 gap-6">
           <div className="leading-tight">
             <div className="font-bold">Amazon Associates</div>
