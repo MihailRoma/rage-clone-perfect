@@ -241,15 +241,50 @@ function Index() {
           <div className="mt-10 border-t border-gray-200 pt-5">
             <h2 className="text-lg font-bold">Product details</h2>
             <dl className="mt-3 text-sm space-y-1.5">
-              <div><dt className="inline font-bold">ASIN </dt><dd className="inline">: B007UJJDTS</dd></div>
-              <div><dt className="inline font-bold">Accessibility </dt><dd className="inline">: <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Learn more</a></dd></div>
-              <div><dt className="inline font-bold">Publication date </dt><dd className="inline">: 14 April 2012</dd></div>
+              <div><dt className="inline font-bold">Publisher </dt><dd className="inline">: Createspace Independent Pub</dd></div>
+              <div><dt className="inline font-bold">Publication date </dt><dd className="inline">: 2 November 2011</dd></div>
               <div><dt className="inline font-bold">Language </dt><dd className="inline">: English</dd></div>
-              <div><dt className="inline font-bold">File size </dt><dd className="inline">: 77.5 MB</dd></div>
               <div><dt className="inline font-bold">Print length </dt><dd className="inline">: 324 pages</dd></div>
+              <div><dt className="inline font-bold">ISBN-10 </dt><dd className="inline">: 1466481722</dd></div>
+              <div><dt className="inline font-bold">ISBN-13 </dt><dd className="inline">: 978-1466481725</dd></div>
+              <div><dt className="inline font-bold">Item Weight </dt><dd className="inline">: 249 g</dd></div>
+              <div><dt className="inline font-bold">Dimensions </dt><dd className="inline">: 14.61 x 2.54 x 23.5 cm</dd></div>
+              <div><dt className="inline font-bold">Best Sellers Rank </dt><dd className="inline">: #9,818 in <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Humour (Books)</a></dd></div>
+              <div className="flex items-center gap-2 pt-1">
+                <dt className="font-bold">Customer Reviews:</dt>
+                <dd className="flex items-center gap-1">
+                  <span>4.4</span>
+                  <div className="flex text-[#DE7921]">
+                    {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
+                    <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
+                  </div>
+                  <ChevronDown className="w-3 h-3 text-[#007185]" />
+                  <a className="text-[#007185] hover:text-[#C7511F] hover:underline">(188)</a>
+                </dd>
+              </div>
             </dl>
           </div>
+
+          {/* About the author */}
+          <div className="mt-10 border-t border-gray-200 pt-5">
+            <h2 className="text-lg font-bold">About the author</h2>
+            <p className="text-sm mt-2">Follow authors to get new release updates, plus improved recommendations.</p>
+            <div className="mt-5 flex gap-5">
+              <div className="flex flex-col items-center gap-3">
+                <div className="w-32 h-32 rounded-full bg-[#dde4e6] flex items-center justify-center">
+                  <svg className="w-24 h-24 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+                </div>
+                <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
+              </div>
+              <div className="flex-1">
+                <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold text-lg">F.U. Derpstein</a>
+                <p className="text-sm mt-2">Discover more of the author's books, see similar authors, read book recommendations and more.</p>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* Buy box stays in right col — close the center wrapper */}
 
         {/* Buy box */}
         <aside className="col-span-3">
