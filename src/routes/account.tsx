@@ -282,11 +282,11 @@ function AccountPage() {
               <div className="flex-1 flex items-center justify-between pt-20">
                 <div>
                   <h1 className="text-3xl font-normal flex items-center gap-2">
-                    F.U. Derpstein <Pencil className="w-5 h-5 text-gray-500" />
+                    {profile.name} <button onClick={openEdit} aria-label="Edit name"><Pencil className="w-5 h-5 text-gray-500 hover:text-gray-700" /></button>
                   </h1>
                   <div className="text-sm text-[#565959] mt-1">Author · Member since March 2011</div>
                 </div>
-                <button className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
+                <button onClick={openEdit} className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
                   Edit your public profile
                 </button>
               </div>
