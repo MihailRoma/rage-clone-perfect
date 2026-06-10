@@ -68,7 +68,7 @@ function Index() {
           <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1" />
             <div className="leading-tight ml-1">
-              <div className="text-xs text-[#cccccc]">Deliver to Alex</div>
+              <div className="text-xs text-[#cccccc]">Deliver to F.U.</div>
               <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
@@ -91,7 +91,7 @@ function Index() {
           </a>
           <div className="relative group h-[50px]">
             <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent group-hover:border-white rounded-sm leading-tight cursor-pointer">
-              <div className="text-xs">Hello, Alex</div>
+              <div className="text-xs">Hello, F.U.</div>
               <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
             </a>
             {/* Dropdown */}
@@ -288,7 +288,7 @@ function Index() {
                 <svg className="w-10 h-10 text-gray-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
               </div>
               <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold">F.U. Derpstein</a>
-              <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
+              <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Edit</button>
             </div>
           </div>
 
@@ -329,7 +329,7 @@ function Index() {
                 <div className="w-32 h-32 rounded-full bg-[#dde4e6] flex items-center justify-center">
                   <svg className="w-24 h-24 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
                 </div>
-                <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
+                <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Edit</button>
               </div>
               <div className="flex-1">
                 <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold text-lg">F.U. Derpstein</a>
