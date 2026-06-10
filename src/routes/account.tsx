@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search,
@@ -146,10 +147,22 @@ const reviews: Review[] = [
 ];
 
 function AccountPage() {
+  const [editOpen, setEditOpen] = useState(false);
+  const [profile, setProfile] = useState({
+    name: "F.U. Derpstein",
+    location: "Somewhere on the Interwebz",
+    website: "derpstein.example",
+    about:
+      "F.U. Derpstein is the curator behind Rage Comics — The Definitive Collection, the bestselling anthology series preserving the golden age of internet meme comics. Three volumes. 1,200+ comics. Trollface approved.",
+  });
+  const [draft, setDraft] = useState(profile);
+  const openEdit = () => { setDraft(profile); setEditOpen(true); };
+  const saveEdit = () => { setProfile(draft); setEditOpen(false); };
   return (
     <div className="min-h-screen bg-white text-[#0F1111] text-sm">
       {/* SiteStripe */}
       <div className="bg-[#fcfcfc] border-b-2 border-[#febd69] text-xs">
+
         <div className="flex items-center px-4 h-12 gap-6">
           <div className="leading-tight">
             <div className="font-bold">Amazon Associates</div>
@@ -269,11 +282,11 @@ function AccountPage() {
               <div className="flex-1 flex items-center justify-between pt-20">
                 <div>
                   <h1 className="text-3xl font-normal flex items-center gap-2">
-                    F.U. Derpstein <Pencil className="w-5 h-5 text-gray-500" />
+                    {profile.name} <button onClick={openEdit} aria-label="Edit name"><Pencil className="w-5 h-5 text-gray-500 hover:text-gray-700" /></button>
                   </h1>
                   <div className="text-sm text-[#565959] mt-1">Author · Member since March 2011</div>
                 </div>
-                <button className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
+                <button onClick={openEdit} className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
                   Edit your public profile
                 </button>
               </div>
@@ -286,17 +299,17 @@ function AccountPage() {
           {/* Left: About */}
           <section className="col-span-1 bg-white border border-gray-200 rounded-md p-5">
             <h2 className="font-bold text-base">About <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
-            <p className="text-sm mt-3 leading-5">
-              F.U. Derpstein is the curator behind <em>Rage Comics — The Definitive Collection</em>, the bestselling anthology series preserving the golden age of internet meme comics. Three volumes. 1,200+ comics. Trollface approved.
+            <p className="text-sm mt-3 leading-5 whitespace-pre-wrap">
+              {profile.about}
             </p>
             <h3 className="font-bold mt-5 text-sm">Author rank</h3>
             <p className="text-sm mt-1">#9,818 in Humour (Books)</p>
             <h3 className="font-bold mt-5 text-sm">Location</h3>
-            <p className="text-sm mt-1">Somewhere on the Interwebz</p>
+            <p className="text-sm mt-1">{profile.location}</p>
             <h3 className="font-bold mt-5 text-sm">Member since</h3>
             <p className="text-sm mt-1">March 2011</p>
             <h3 className="font-bold mt-5 text-sm">Website</h3>
-            <p className="text-sm mt-1"><a className="text-[#007185] hover:text-[#C7511F] hover:underline">derpstein.example</a></p>
+            <p className="text-sm mt-1"><a className="text-[#007185] hover:text-[#C7511F] hover:underline">{profile.website}</a></p>
           </section>
 
           {/* Right column */}
@@ -395,6 +408,56 @@ function AccountPage() {
       <footer className="mt-10 bg-[#232f3e] text-white text-xs text-center py-6">
         © 1996-2026, Amazon.com, Inc. or its affiliates
       </footer>
+
+      {editOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setEditOpen(false)}>
+          <div className="bg-white rounded-md shadow-2xl w-full max-w-lg" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200">
+              <h2 className="text-lg font-bold">Edit your public profile</h2>
+              <button onClick={() => setEditOpen(false)} className="text-gray-500 hover:text-gray-800 text-xl leading-none">×</button>
+            </div>
+            <div className="px-5 py-4 space-y-4">
+              <label className="block">
+                <span className="text-sm font-bold">Display name</span>
+                <input
+                  value={draft.name}
+                  onChange={(e) => setDraft({ ...draft, name: e.target.value })}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold">Location</span>
+                <input
+                  value={draft.location}
+                  onChange={(e) => setDraft({ ...draft, location: e.target.value })}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold">Website</span>
+                <input
+                  value={draft.website}
+                  onChange={(e) => setDraft({ ...draft, website: e.target.value })}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+              <label className="block">
+                <span className="text-sm font-bold">About</span>
+                <textarea
+                  value={draft.about}
+                  onChange={(e) => setDraft({ ...draft, about: e.target.value })}
+                  rows={5}
+                  className="mt-1 w-full border border-gray-400 rounded px-3 py-2 text-sm outline-none focus:border-[#e77600] focus:ring-2 focus:ring-[#f6c177]"
+                />
+              </label>
+            </div>
+            <div className="flex justify-end gap-2 px-5 py-3 border-t border-gray-200 bg-[#f7f7f7] rounded-b-md">
+              <button onClick={() => setEditOpen(false)} className="px-4 py-1.5 border border-gray-400 rounded-full text-sm bg-white hover:bg-gray-50">Cancel</button>
+              <button onClick={saveEdit} className="px-5 py-1.5 rounded-full text-sm font-medium bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] shadow-sm">Save</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
