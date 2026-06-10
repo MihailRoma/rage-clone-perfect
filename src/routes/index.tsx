@@ -77,7 +77,7 @@ function Index() {
               Kindle Store <ChevronDown className="w-3 h-3" />
             </button>
             <input
-              className="flex-1 px-3 text-[#0F1111] outline-none"
+              className="flex-1 px-3 text-[#0F1111] outline-none bg-white placeholder:text-[#555555]"
               placeholder="Search Amazon.co.uk"
             />
             <button className="bg-[#febd69] hover:bg-[#f3a847] w-12 flex items-center justify-center">
