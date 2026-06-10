@@ -8,15 +8,16 @@ import {
   Pencil,
   Camera,
   Star,
+  ThumbsUp,
 } from "lucide-react";
-import avatarImg from "@/assets/alex-avatar.jpg";
 import coverAsset from "@/assets/rage-comics-cover.png.asset.json";
+import logoAsset from "@/assets/amazon-logo.png.asset.json";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
-      { title: "Your Profile: Alex Carter: Amazon.co.uk" },
-      { name: "description", content: "Your Amazon profile" },
+      { title: "Your Profile: F.U. Derpstein: Amazon.co.uk" },
+      { name: "description", content: "Author profile of F.U. Derpstein" },
     ],
   }),
   component: AccountPage,
@@ -39,6 +40,109 @@ const navLinks = [
   "Browsing History",
   "Prime",
   "Gift Cards",
+];
+
+type Review = {
+  name: string;
+  initial: string;
+  stars: number;
+  title: string;
+  meta: string;
+  body: string;
+  helpful: number;
+};
+
+const reviews: Review[] = [
+  {
+    name: "mrs lock",
+    initial: "M",
+    stars: 5,
+    title: "Great",
+    meta: "Reviewed in the United Kingdom on 28 January 2014",
+    body: "I bought this book for my daughter and she loves it. She's a big fan of the meme characters so I thought this would be a good Christmas gift and give her eyes a rest from reading the strips on the computer. You'd definitely have to be a fan of the rage crew to enjoy it.",
+    helpful: 14,
+  },
+  {
+    name: "Treye",
+    initial: "T",
+    stars: 5,
+    title: "Great rage comic collection!",
+    meta: "Reviewed in the United States on 28 November 2013",
+    body: "Rage comics are undoubtedly my favourite thing on the Interwebz! Whoever F.U. Derpstein is collected the best rage comics and slapped them into one book that I have rated 5 STARRZZZ!",
+    helpful: 9,
+  },
+  {
+    name: "Alexander",
+    initial: "A",
+    stars: 5,
+    title: "cooool",
+    meta: "Reviewed in Germany on 30 November 2024",
+    body: "cooool",
+    helpful: 2,
+  },
+  {
+    name: "javier",
+    initial: "J",
+    stars: 5,
+    title: "Rage comics review",
+    meta: "Reviewed in the United States on 14 April 2013",
+    body: "This is a hilarious book and it's worth what you're paying for. So if you're debating whether to buy it or not, you should definitely pick this up.",
+    helpful: 6,
+  },
+  {
+    name: "chuck",
+    initial: "C",
+    stars: 5,
+    title: "Great read, finished in a night",
+    meta: "Reviewed in the United States on 12 January 2013",
+    body: "Hi this was really a great book of rage. Read half the book in one night and the other half on another.",
+    helpful: 4,
+  },
+  {
+    name: "Megan H.",
+    initial: "M",
+    stars: 4,
+    title: "Solid collection, slight repeats",
+    meta: "Reviewed in the United Kingdom on 3 September 2015",
+    body: "Massive nostalgia trip. Most of the classics are here — trollface, rage guy, me gusta, fffuuu — but a few panels show up more than once. Still worth it for the price.",
+    helpful: 11,
+  },
+  {
+    name: "Derp_Fan_99",
+    initial: "D",
+    stars: 5,
+    title: "Trollface forever",
+    meta: "Reviewed in Canada on 19 July 2016",
+    body: "Bought this purely for the trollface chapter and stayed for the whole thing. Derpstein has really good taste in selecting which comics to include.",
+    helpful: 7,
+  },
+  {
+    name: "Sophie",
+    initial: "S",
+    stars: 3,
+    title: "Fun but very 2012",
+    meta: "Reviewed in the United Kingdom on 4 October 2018",
+    body: "If you grew up on early 2010s internet humour you'll love it. If you didn't, a lot of the jokes won't land. It is exactly what it says on the tin though.",
+    helpful: 5,
+  },
+  {
+    name: "RageMaster",
+    initial: "R",
+    stars: 5,
+    title: "Y U NO MAKE VOL 4",
+    meta: "Reviewed in the United States on 22 February 2017",
+    body: "Read this cover to cover twice. Vol. 1, 2 and 3 are all on my shelf now. Please give us a volume 4 Mr. Derpstein.",
+    helpful: 18,
+  },
+  {
+    name: "Lukas B.",
+    initial: "L",
+    stars: 4,
+    title: "Great gift",
+    meta: "Reviewed in Germany on 8 December 2019",
+    body: "Gave this to my little brother for his birthday. He laughed for an hour straight, so I'd call that a success.",
+    helpful: 3,
+  },
 ];
 
 function AccountPage() {
@@ -76,14 +180,13 @@ function AccountPage() {
       {/* Top nav */}
       <header className="bg-[#131921] text-white">
         <div className="flex items-center px-2 h-[60px] gap-2">
-          <Link to="/" className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
-            <span className="text-2xl font-bold leading-none">amazon</span>
-            <span className="text-xs text-[#febd69] ml-0.5 mb-1">prime</span>
+          <Link to="/" className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
+            <img src={logoAsset.url} alt="Amazon" className="h-9 w-auto" />
           </Link>
           <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1" />
             <div className="leading-tight ml-1">
-              <div className="text-xs text-[#cccccc]">Deliver to Alex</div>
+              <div className="text-xs text-[#cccccc]">Deliver to F.U.</div>
               <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
@@ -101,7 +204,7 @@ function AccountPage() {
             <ChevronDown className="w-3 h-3 mt-2 text-[#cccccc]" />
           </a>
           <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
-            <div className="text-xs">Hello, Alex</div>
+            <div className="text-xs">Hello, F.U.</div>
             <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
           </a>
           <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
@@ -124,7 +227,7 @@ function AccountPage() {
               {(l === "Browsing History" || l === "Prime") && <ChevronDown className="w-3 h-3 ml-1" />}
             </a>
           ))}
-          <div className="ml-auto pr-2 font-bold text-xs">Shop with Prime perks</div>
+          <div className="ml-auto pr-2 font-bold text-xs">Author Central · Manage your books</div>
         </div>
       </header>
 
@@ -141,14 +244,14 @@ function AccountPage() {
         {/* Private notice */}
         <div className="flex justify-center mb-3">
           <div className="border border-[#5a8b76] bg-[#f0f8f4] rounded px-4 py-2 text-sm">
-            This is your private view of your public profile.{" "}
+            This is your private view of your public author profile.{" "}
             <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold">See what others see</a>
           </div>
         </div>
 
         {/* Banner + avatar */}
         <div className="relative">
-          <div className="h-48 bg-gradient-to-b from-gray-300 to-gray-100 rounded-t-md relative">
+          <div className="h-48 bg-gradient-to-b from-[#febd69]/60 to-[#fff3d6] rounded-t-md relative">
             <button className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow">
               <Camera className="w-5 h-5 text-gray-600" />
             </button>
@@ -156,21 +259,20 @@ function AccountPage() {
           <div className="bg-white px-6 pb-6 pt-2 rounded-b-md border border-gray-200 border-t-0">
             <div className="flex items-end gap-6 -mt-20">
               <div className="relative">
-                <img
-                  src={avatarImg}
-                  alt="Alex Carter"
-                  width={160}
-                  height={160}
-                  className="w-40 h-40 rounded-full border-4 border-white object-cover bg-white"
-                />
+                <div className="w-40 h-40 rounded-full border-4 border-white bg-[#dde4e6] flex items-center justify-center shadow">
+                  <svg className="w-28 h-28 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+                </div>
                 <button className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center shadow">
                   <Camera className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
               <div className="flex-1 flex items-center justify-between pt-20">
-                <h1 className="text-3xl font-normal flex items-center gap-2">
-                  Alex Carter <Pencil className="w-5 h-5 text-gray-500" />
-                </h1>
+                <div>
+                  <h1 className="text-3xl font-normal flex items-center gap-2">
+                    F.U. Derpstein <Pencil className="w-5 h-5 text-gray-500" />
+                  </h1>
+                  <div className="text-sm text-[#565959] mt-1">Author · Member since March 2011</div>
+                </div>
                 <button className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
                   Edit your public profile
                 </button>
@@ -185,14 +287,16 @@ function AccountPage() {
           <section className="col-span-1 bg-white border border-gray-200 rounded-md p-5">
             <h2 className="font-bold text-base">About <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
             <p className="text-sm mt-3 leading-5">
-              Lifelong fan of internet humour, meme history and absurd webcomics. I collect rage comics, troll faces and other early-2010s classics. Currently reading my way through every volume of "The Definitive Collection". <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Read more</a>
+              F.U. Derpstein is the curator behind <em>Rage Comics — The Definitive Collection</em>, the bestselling anthology series preserving the golden age of internet meme comics. Three volumes. 1,200+ comics. Trollface approved.
             </p>
-            <h3 className="font-bold mt-5 text-sm">Reviewer ranking</h3>
-            <p className="text-sm mt-1">#4,812,309</p>
+            <h3 className="font-bold mt-5 text-sm">Author rank</h3>
+            <p className="text-sm mt-1">#9,818 in Humour (Books)</p>
             <h3 className="font-bold mt-5 text-sm">Location</h3>
-            <p className="text-sm mt-1">London, United Kingdom</p>
+            <p className="text-sm mt-1">Somewhere on the Interwebz</p>
             <h3 className="font-bold mt-5 text-sm">Member since</h3>
-            <p className="text-sm mt-1">March 2014</p>
+            <p className="text-sm mt-1">March 2011</p>
+            <h3 className="font-bold mt-5 text-sm">Website</h3>
+            <p className="text-sm mt-1"><a className="text-[#007185] hover:text-[#C7511F] hover:underline">derpstein.example</a></p>
           </section>
 
           {/* Right column */}
@@ -202,11 +306,11 @@ function AccountPage() {
               <h2 className="font-bold text-base">Insights</h2>
               <div className="grid grid-cols-5 gap-4 mt-4 text-center">
                 {[
-                  { n: 3, label: "helpful votes", v: "Public" },
-                  { n: 1, label: "reviews", v: "Public" },
-                  { n: 0, label: "hearts", v: "Public" },
-                  { n: 1, label: "idea lists", v: "Public" },
-                  { n: 0, label: "followers", v: "Private" },
+                  { n: 412, label: "books sold (k)", v: "Private" },
+                  { n: 188, label: "reviews", v: "Public" },
+                  { n: "4.4", label: "avg rating", v: "Public" },
+                  { n: 3, label: "titles", v: "Public" },
+                  { n: "2.1k", label: "followers", v: "Public" },
                 ].map((s) => (
                   <div key={s.label}>
                     <div className="text-3xl font-light">{s.n}</div>
@@ -217,11 +321,11 @@ function AccountPage() {
               </div>
             </section>
 
-            {/* Recent activity / Review */}
+            {/* Your books */}
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <div className="flex items-center justify-between">
-                <h2 className="font-bold text-base">Community activity <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
-                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all activity</a>
+                <h2 className="font-bold text-base">Your books <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
+                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">Manage in Author Central</a>
               </div>
               <div className="mt-4 flex gap-4">
                 <Link to="/" className="shrink-0">
@@ -231,36 +335,58 @@ function AccountPage() {
                   <Link to="/" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">
                     Rage Comics - The Definitive Collection, Vol. 2 (400+ comics)
                   </Link>
-                  <div className="text-xs text-[#565959]">Kindle Edition · by F.U. Derpstein</div>
+                  <div className="text-xs text-[#565959]">Kindle Edition & Paperback · Published 2 November 2011</div>
                   <div className="flex items-center gap-1 mt-2 text-[#DE7921]">
-                    {[0,1,2,3,4].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
-                    <span className="text-[#0F1111] text-sm font-bold ml-1">An absolute meme masterpiece</span>
+                    {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
+                    <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
+                    <span className="text-[#0F1111] text-sm ml-1">4.4 out of 5 · 188 ratings</span>
                   </div>
-                  <div className="text-xs text-[#565959] mt-1">Reviewed on 12 February 2024</div>
                   <p className="text-sm mt-2 leading-5">
-                    Brought back so much nostalgia. Over 400 comics, all properly curated — trollface, rage guy, me gusta, the whole crew. Honestly worth every page. 5 stars, would fap again.
+                    The flagship volume. Over 400 author-approved rage comics covering trollface, rage guy, me gusta, fffuuu and the rest of the family.
                   </p>
-                  <div className="text-xs text-[#565959] mt-2">3 people found this helpful</div>
+                  <div className="text-xs mt-2">Best Sellers Rank: <span className="font-medium">#9,818 in Humour (Books)</span></div>
                 </div>
               </div>
             </section>
 
-            {/* Idea list */}
+            {/* Reader reviews of your book */}
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <div className="flex items-center justify-between">
-                <h2 className="font-bold text-base">Idea lists <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
-                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all idea lists</a>
+                <h2 className="font-bold text-base">Reader reviews of your books</h2>
+                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all 188</a>
               </div>
-              <div className="mt-4 flex gap-4 items-center">
-                <div className="w-24 h-24 bg-[#fff3d6] flex items-center justify-center border border-gray-200">
-                  <img src={coverAsset.url} alt="" className="w-16 h-auto" loading="lazy" />
-                </div>
-                <div>
-                  <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">Essential Meme Reading List</a>
-                  <div className="text-xs text-[#565959] mt-1">7 items · Updated April 2025</div>
-                  <p className="text-sm mt-1">Rage Comics Vol. 1–3, troll face anthologies, and other internet history must-haves.</p>
-                </div>
+              <div className="text-xs text-[#565959] mt-1">Rage Comics — The Definitive Collection, Vol. 2</div>
+
+              <div className="mt-5 space-y-7">
+                {reviews.map((r) => (
+                  <article key={r.name} className="border-b border-gray-100 pb-5 last:border-0">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold text-gray-600">
+                        {r.initial}
+                      </div>
+                      <span className="font-bold text-sm">{r.name}</span>
+                    </div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <div className="flex text-[#DE7921]">
+                        {Array.from({ length: r.stars }).map((_, i) => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
+                        {Array.from({ length: 5 - r.stars }).map((_, i) => <Star key={`e${i}`} className="w-4 h-4 text-gray-300" />)}
+                      </div>
+                      <span className="font-bold text-sm">{r.title}</span>
+                    </div>
+                    <div className="text-xs text-[#565959] mt-1">{r.meta}</div>
+                    <div className="text-xs text-[#C7511F] font-bold mt-1">Verified Purchase</div>
+                    <p className="text-sm mt-2 leading-5">{r.body}</p>
+                    <div className="flex items-center gap-4 mt-3">
+                      <div className="text-xs text-[#565959] flex items-center gap-1">
+                        <ThumbsUp className="w-3 h-3" /> {r.helpful} people found this helpful
+                      </div>
+                      <button className="text-xs text-[#007185] hover:text-[#C7511F] hover:underline">Reply as author</button>
+                      <button className="text-xs text-[#565959] hover:text-[#C7511F]">Report</button>
+                    </div>
+                  </article>
+                ))}
               </div>
+              <a className="inline-block mt-4 text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See more reviews</a>
             </section>
           </div>
         </div>

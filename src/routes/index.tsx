@@ -68,7 +68,7 @@ function Index() {
           <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1" />
             <div className="leading-tight ml-1">
-              <div className="text-xs text-[#cccccc]">Deliver to Alex</div>
+              <div className="text-xs text-[#cccccc]">Deliver to F.U.</div>
               <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
@@ -91,7 +91,7 @@ function Index() {
           </a>
           <div className="relative group h-[50px]">
             <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent group-hover:border-white rounded-sm leading-tight cursor-pointer">
-              <div className="text-xs">Hello, Alex</div>
+              <div className="text-xs">Hello, F.U.</div>
               <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
             </a>
             {/* Dropdown */}
