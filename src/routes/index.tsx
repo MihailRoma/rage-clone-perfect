@@ -15,7 +15,7 @@ import {
   HardDrive,
   Flag,
 } from "lucide-react";
-import coverImg from "@/assets/rage-comics-cover.jpg";
+import coverAsset from "@/assets/rage-comics-cover.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -68,8 +68,8 @@ function Index() {
           <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1" />
             <div className="leading-tight ml-1">
-              <div className="text-xs text-[#cccccc]">Delivering to London SW1A 1AA</div>
-              <div className="text-sm font-bold">Update location</div>
+              <div className="text-xs text-[#cccccc]">Deliver to Alex</div>
+              <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
           <div className="flex flex-1 h-10 rounded-md overflow-hidden">
@@ -90,7 +90,7 @@ function Index() {
             <ChevronDown className="w-3 h-3 mt-2 text-[#cccccc]" />
           </a>
           <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
-            <div className="text-xs">Hello, sign in</div>
+            <div className="text-xs">Hello, Alex</div>
             <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
           </a>
           <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
@@ -151,10 +151,8 @@ function Index() {
         {/* Image */}
         <div className="col-span-3">
           <img
-            src={coverImg}
+            src={coverAsset.url}
             alt="Rage Comics - The Definitive Collection, Vol. 2"
-            width={1024}
-            height={1536}
             className="w-full h-auto"
           />
         </div>
