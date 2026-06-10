@@ -299,17 +299,17 @@ function AccountPage() {
           {/* Left: About */}
           <section className="col-span-1 bg-white border border-gray-200 rounded-md p-5">
             <h2 className="font-bold text-base">About <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
-            <p className="text-sm mt-3 leading-5">
-              F.U. Derpstein is the curator behind <em>Rage Comics — The Definitive Collection</em>, the bestselling anthology series preserving the golden age of internet meme comics. Three volumes. 1,200+ comics. Trollface approved.
+            <p className="text-sm mt-3 leading-5 whitespace-pre-wrap">
+              {profile.about}
             </p>
             <h3 className="font-bold mt-5 text-sm">Author rank</h3>
             <p className="text-sm mt-1">#9,818 in Humour (Books)</p>
             <h3 className="font-bold mt-5 text-sm">Location</h3>
-            <p className="text-sm mt-1">Somewhere on the Interwebz</p>
+            <p className="text-sm mt-1">{profile.location}</p>
             <h3 className="font-bold mt-5 text-sm">Member since</h3>
             <p className="text-sm mt-1">March 2011</p>
             <h3 className="font-bold mt-5 text-sm">Website</h3>
-            <p className="text-sm mt-1"><a className="text-[#007185] hover:text-[#C7511F] hover:underline">derpstein.example</a></p>
+            <p className="text-sm mt-1"><a className="text-[#007185] hover:text-[#C7511F] hover:underline">{profile.website}</a></p>
           </section>
 
           {/* Right column */}
