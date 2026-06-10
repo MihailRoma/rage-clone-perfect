@@ -287,8 +287,8 @@ function Index() {
               <div className="w-14 h-14 rounded-full bg-gray-300 flex items-center justify-center">
                 <svg className="w-10 h-10 text-gray-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
               </div>
-              <a className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold">F.U. Derpstein</a>
-              <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Edit</button>
+              <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold">F.U. Derpstein</Link>
+              <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
             </div>
           </div>
 
