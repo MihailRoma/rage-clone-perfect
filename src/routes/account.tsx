@@ -298,7 +298,7 @@ function AccountPage() {
         {/* Body grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
           {/* Left: About */}
-          <section className="col-span-1 bg-white border border-gray-200 rounded-md p-5">
+          <section className="md:col-span-1 bg-white border border-gray-200 rounded-md p-5">
             <h2 className="font-bold text-base">About <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
             <p className="text-sm mt-3 leading-5 whitespace-pre-wrap">
               {profile.about}
