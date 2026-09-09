@@ -304,7 +304,7 @@ function AccountPage() {
               {profile.about}
             </p>
             <h3 className="font-bold mt-5 text-sm">Author rank</h3>
-            <p className="text-sm mt-1">#9,818 in Humour (Books)</p>
+            <p className="text-sm mt-1">#12,467 in Children's Literature & Fiction (Books)</p>
             <h3 className="font-bold mt-5 text-sm">Location</h3>
             <p className="text-sm mt-1">{profile.location}</p>
             <h3 className="font-bold mt-5 text-sm">Member since</h3>
