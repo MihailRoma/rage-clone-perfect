@@ -318,7 +318,7 @@ function AccountPage() {
             {/* Insights */}
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <h2 className="font-bold text-base">Insights</h2>
-              <div className="grid grid-cols-5 gap-4 mt-4 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mt-4 text-center">
                 {[
                   { n: 412, label: "books sold (k)", v: "Private" },
                   { n: 188, label: "reviews", v: "Public" },
