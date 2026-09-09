@@ -314,7 +314,7 @@ function AccountPage() {
           </section>
 
           {/* Right column */}
-          <div className="col-span-2 space-y-5">
+          <div className="md:col-span-2 space-y-5">
             {/* Insights */}
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <h2 className="font-bold text-base">Insights</h2>
