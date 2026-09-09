@@ -15,14 +15,18 @@ import {
   HardDrive,
   Flag,
 } from "lucide-react";
-import coverAsset from "@/assets/rage-comics-cover.png.asset.json";
+import coverAsset from "@/assets/robinhood-cover.jpg.asset.json";
 import logoAsset from "@/assets/amazon-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rage Comics - The Definitive Collection, Vol. 2 (400+ comics) eBook : Derpstein, F.U.: Amazon.co.uk: Kindle Store" },
-      { name: "description", content: "Rage Comics - The Definitive Collection, Vol. 2 (400+ comics) Kindle Edition by F.U. Derpstein." },
+      { title: "The Adventures of Robinhood : Pyle, Howard: Amazon.co.uk: Books" },
+      { name: "description", content: "The Adventures of Robinhood by Howard Pyle — paperback classic edition from Ramesh Publishing House." },
+      { property: "og:title", content: "The Adventures of Robinhood : Pyle, Howard" },
+      { property: "og:description", content: "Howard Pyle's classic tale of Robin Hood and his merry men of Sherwood Forest." },
+      { property: "og:type", content: "book" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -74,7 +78,7 @@ function Index() {
           </a>
           <div className="flex flex-1 h-10 rounded-md overflow-hidden">
             <button className="bg-[#f3f3f3] text-[#0F1111] px-3 flex items-center gap-1 text-xs border-r border-gray-300 hover:bg-gray-200">
-              Kindle Store <ChevronDown className="w-3 h-3" />
+              Books <ChevronDown className="w-3 h-3" />
             </button>
             <input
               className="flex-1 px-3 text-[#0F1111] outline-none bg-white placeholder:text-[#555555]"
@@ -196,9 +200,9 @@ function Index() {
       <div className="px-6 pt-3 text-xs text-[#565959]">
         <a className="hover:text-[#C7511F] hover:underline">Books</a>
         <ChevronRight className="inline w-3 h-3 mx-1" />
-        <a className="hover:text-[#C7511F] hover:underline">Comics & Mangas</a>
+        <a className="hover:text-[#C7511F] hover:underline">Children's Books</a>
         <ChevronRight className="inline w-3 h-3 mx-1" />
-        <a className="hover:text-[#C7511F] hover:underline">Comics</a>
+        <a className="hover:text-[#C7511F] hover:underline">Literature & Fiction</a>
       </div>
 
       {/* Main product layout */}
@@ -207,7 +211,9 @@ function Index() {
         <div className="col-span-3">
           <img
             src={coverAsset.url}
-            alt="Rage Comics - The Definitive Collection, Vol. 2"
+            alt="The Adventures of Robinhood by Howard Pyle"
+            width={704}
+            height={1024}
             className="w-full h-auto"
           />
         </div>
@@ -216,7 +222,7 @@ function Index() {
         <div className="col-span-6">
           <div className="flex justify-between items-start">
             <h1 className="text-2xl font-normal leading-tight">
-              Rage Comics - The Definitive Collection, Vol. 2 (400+ comics)
+              The Adventures of Robinhood
             </h1>
             <button className="border border-gray-300 rounded-full w-9 h-9 flex items-center justify-center shadow-sm">
               <Share2 className="w-4 h-4" />
@@ -224,36 +230,36 @@ function Index() {
           </div>
           <div className="mt-1 text-sm">
             <span>by </span>
-            <a className="text-[#007185] hover:text-[#C7511F] hover:underline">F.U. Derpstein</a>
+            <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Howard Pyle</a>
             <span> (Author)</span>
             <span className="mx-2 text-gray-300">|</span>
-            <span className="font-bold">Format:</span> <span>Kindle Edition</span>
+            <span className="font-bold">Format:</span> <span>Paperback</span>
           </div>
           <div className="mt-2 flex items-center gap-1 text-sm">
-            <span className="font-bold">4.4</span>
+            <span className="font-bold">4.5</span>
             <div className="flex text-[#DE7921]">
               {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
               <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
             </div>
             <ChevronDown className="w-3 h-3 text-[#007185]" />
-            <a className="text-[#007185] hover:text-[#C7511F] hover:underline ml-1">(188)</a>
+            <a className="text-[#007185] hover:text-[#C7511F] hover:underline ml-1">(126)</a>
           </div>
 
           <hr className="my-3 border-gray-200" />
 
           <p className="text-sm leading-5">
-            Over 400 Rage Comics in this digital collection, all are author approved and represent the best and funniest. Vol. 1 2 and 3 are also available in paperback.
+            The book is an 1883 novel consisting of a series of episodes in the story of the English outlaw Robin Hood and his band of merry men in Sherwood Forest. Retold and illustrated by Howard Pyle, it remains the classic introduction to the legend for young readers.
           </p>
 
           {/* Details strip */}
           <div className="mt-4 border border-gray-200 rounded-md">
             <div className="grid grid-cols-5 p-4 text-center text-xs relative">
               {[
-                { label: "Print length", icon: <FileText className="w-5 h-5 mx-auto" />, value: <a className="text-[#007185] hover:text-[#C7511F] hover:underline">324 pages <ChevronDown className="inline w-3 h-3" /></a> },
+                { label: "Print length", icon: <FileText className="w-5 h-5 mx-auto" />, value: <a className="text-[#007185] hover:text-[#C7511F] hover:underline">160 pages <ChevronDown className="inline w-3 h-3" /></a> },
                 { label: "Language", icon: <Globe className="w-5 h-5 mx-auto" />, value: <span className="font-bold">English</span> },
                 { label: "Accessibility", icon: <Accessibility className="w-5 h-5 mx-auto" />, value: <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Learn more</a> },
-                { label: "Publication date", icon: <CalendarDays className="w-5 h-5 mx-auto" />, value: <span className="font-bold">14 April 2012</span> },
-                { label: "File size", icon: <HardDrive className="w-5 h-5 mx-auto" />, value: <span className="font-bold">77.5 MB</span> },
+                { label: "Publication date", icon: <CalendarDays className="w-5 h-5 mx-auto" />, value: <span className="font-bold">1 January 2024</span> },
+                { label: "Item weight", icon: <HardDrive className="w-5 h-5 mx-auto" />, value: <span className="font-bold">150 g</span> },
               ].map((d) => (
                 <div key={d.label} className="px-2">
                   <div className="font-bold text-[#0F1111] mb-2">{d.label}</div>
@@ -271,7 +277,7 @@ function Index() {
 
           <hr className="my-3 border-gray-200" />
 
-          <p className="text-sm">Due to its large file size, this book may take longer to download</p>
+          <p className="text-sm">Part of the Indian Classic Library series for young readers</p>
 
           <a className="mt-3 inline-flex items-center gap-2 text-[#007185] hover:text-[#C7511F] hover:underline text-sm">
             <Flag className="w-4 h-4" /> Report an issue with this product
@@ -287,8 +293,8 @@ function Index() {
               <div className="w-14 h-14 rounded-full bg-gray-300 flex items-center justify-center">
                 <svg className="w-10 h-10 text-gray-500" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
               </div>
-              <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold">F.U. Derpstein</Link>
-              <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
+              <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold">Howard Pyle</Link>
+              <Link to="/account" className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Edit profile</Link>
             </div>
           </div>
 
@@ -296,25 +302,26 @@ function Index() {
           <div className="mt-10 border-t border-gray-200 pt-5">
             <h2 className="text-lg font-bold">Product details</h2>
             <dl className="mt-3 text-sm space-y-1.5">
-              <div><dt className="inline font-bold">Publisher </dt><dd className="inline">: Createspace Independent Pub</dd></div>
-              <div><dt className="inline font-bold">Publication date </dt><dd className="inline">: 2 November 2011</dd></div>
+              <div><dt className="inline font-bold">Publisher </dt><dd className="inline">: Ramesh Publishing House</dd></div>
+              <div><dt className="inline font-bold">Publication date </dt><dd className="inline">: 1 January 2024</dd></div>
+              <div><dt className="inline font-bold">Edition </dt><dd className="inline">: 2024</dd></div>
               <div><dt className="inline font-bold">Language </dt><dd className="inline">: English</dd></div>
-              <div><dt className="inline font-bold">Print length </dt><dd className="inline">: 324 pages</dd></div>
-              <div><dt className="inline font-bold">ISBN-10 </dt><dd className="inline">: 1466481722</dd></div>
-              <div><dt className="inline font-bold">ISBN-13 </dt><dd className="inline">: 978-1466481725</dd></div>
-              <div><dt className="inline font-bold">Item Weight </dt><dd className="inline">: 249 g</dd></div>
-              <div><dt className="inline font-bold">Dimensions </dt><dd className="inline">: 14.61 x 2.54 x 23.5 cm</dd></div>
-              <div><dt className="inline font-bold">Best Sellers Rank </dt><dd className="inline">: #9,818 in <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Humour (Books)</a></dd></div>
+              <div><dt className="inline font-bold">Print length </dt><dd className="inline">: 160 pages</dd></div>
+              <div><dt className="inline font-bold">ISBN-10 </dt><dd className="inline">: 938606331X</dd></div>
+              <div><dt className="inline font-bold">ISBN-13 </dt><dd className="inline">: 978-9386063311</dd></div>
+              <div><dt className="inline font-bold">Item Weight </dt><dd className="inline">: 150 g</dd></div>
+              <div><dt className="inline font-bold">Dimensions </dt><dd className="inline">: 13.3 x 1.2 x 20.3 cm</dd></div>
+              <div><dt className="inline font-bold">Best Sellers Rank </dt><dd className="inline">: #12,467 in <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Children's Literature & Fiction (Books)</a></dd></div>
               <div className="flex items-center gap-2 pt-1">
                 <dt className="font-bold">Customer Reviews:</dt>
                 <dd className="flex items-center gap-1">
-                  <span>4.4</span>
+                  <span>4.5</span>
                   <div className="flex text-[#DE7921]">
                     {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
                     <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
                   </div>
                   <ChevronDown className="w-3 h-3 text-[#007185]" />
-                  <a className="text-[#007185] hover:text-[#C7511F] hover:underline">(188)</a>
+                  <a className="text-[#007185] hover:text-[#C7511F] hover:underline">(126)</a>
                 </dd>
               </div>
             </dl>
@@ -329,11 +336,11 @@ function Index() {
                 <div className="w-32 h-32 rounded-full bg-[#dde4e6] flex items-center justify-center">
                   <svg className="w-24 h-24 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
                 </div>
-                <button className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Follow</button>
+                <Link to="/account" className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Edit profile</Link>
               </div>
               <div className="flex-1">
-                <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold text-lg">F.U. Derpstein</Link>
-                <p className="text-sm mt-2">Discover more of the author's books, see similar authors, read book recommendations and more.</p>
+                <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold text-lg">Howard Pyle</Link>
+                <p className="text-sm mt-2">Howard Pyle (1853-1911) was an American illustrator and author, best known for his retellings of classic legends including The Merry Adventures of Robin Hood and King Arthur.</p>
               </div>
             </div>
           </div>
@@ -353,7 +360,7 @@ function Index() {
             </p>
           </div>
           <button className="mt-3 w-full border border-gray-300 rounded-lg py-2 text-sm bg-white hover:bg-gray-50 shadow-sm">
-            Add to Wish List
+            Edit Information
           </button>
         </aside>
 
@@ -366,17 +373,17 @@ function Index() {
                 {[0,1,2,3].map(i => <Star key={i} className="w-5 h-5 fill-[#DE7921]" />)}
                 <Star className="w-5 h-5 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
               </div>
-              <span className="font-bold">4.4 out of 5</span>
+              <span className="font-bold">4.5 out of 5</span>
             </div>
-            <p className="text-xs text-[#565959] mt-1">188 global ratings</p>
+            <p className="text-xs text-[#565959] mt-1">126 global ratings</p>
 
             <div className="mt-4 space-y-1.5 text-sm">
               {[
-                { s: 5, p: 72 },
-                { s: 4, p: 12 },
-                { s: 3, p: 11 },
+                { s: 5, p: 68 },
+                { s: 4, p: 21 },
+                { s: 3, p: 7 },
                 { s: 2, p: 2 },
-                { s: 1, p: 3 },
+                { s: 1, p: 2 },
               ].map((r) => (
                 <div key={r.s} className="flex items-center gap-2">
                   <a className="text-[#007185] hover:text-[#C7511F] hover:underline w-12">{r.s} star</a>
@@ -406,14 +413,14 @@ function Index() {
                   stars: 5,
                   title: "Great",
                   meta: "Reviewed in the United Kingdom on 28 January 2014",
-                  body: "I bought this book for my daughter and she loves it. She's a big fan of the meme characters so I thought this would be a good idea for a Christmas gift and give her eyes a rest from reading the comic strips on the computer. You'd definitely have to be a fan of the rage characters to enjoy the book.",
+                  body: "I bought this book for my daughter and she loves it. She had been asking for the Robin Hood stories after seeing a film, and this edition is the perfect size for her to read on her own. Lovely illustrations too.",
                 },
                 {
                   name: "Treye",
                   stars: 5,
-                  title: "Great rage comic collection!",
+                  title: "Timeless classic, lovely edition",
                   meta: "Reviewed in the United States on 28 November 2013",
-                  body: "Rage comics are undoubtedly my favourite thing on the Interwebz! Whoever F.U. Derpstein is collected the best rage comics and slapped them into one book that I have rated 5 STARRZZZ!",
+                  body: "Howard Pyle's version is still the best telling of the Robin Hood legend. Sherwood Forest, Little John, Friar Tuck and the Sheriff of Nottingham — it's all here and it reads beautifully out loud.",
                 },
                 {
                   name: "Alexander",
@@ -425,16 +432,16 @@ function Index() {
                 {
                   name: "javier",
                   stars: 5,
-                  title: "Rage comics review",
+                  title: "Robin Hood review",
                   meta: "Reviewed in the United States on 14 April 2013",
-                  body: "This is a hilarious book and it's worth what you're paying for. So if you're debating whether to buy it or not, you should definitely buy this.",
+                  body: "This is a wonderful book and it's worth what you're paying for. So if you're debating whether to buy it or not, you should definitely buy this.",
                 },
                 {
                   name: "chuck",
                   stars: 5,
                   title: "Great read, finished it in a night",
                   meta: "Reviewed in the United States on 12 January 2013",
-                  body: "Hi this was really a great book of rage. Read half the book in one night and the other half on another.",
+                  body: "Hi this was really a great book. Read half of Robin Hood's adventures in one night and the other half on another.",
                 },
               ].map((r) => (
                 <article key={r.name}>
