@@ -367,9 +367,9 @@ function AccountPage() {
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <div className="flex items-center justify-between">
                 <h2 className="font-bold text-base">Reader reviews of your books</h2>
-                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all 188</a>
+                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all 126</a>
               </div>
-              <div className="text-xs text-[#565959] mt-1">Rage Comics — The Definitive Collection, Vol. 2</div>
+              <div className="text-xs text-[#565959] mt-1">The Adventures of Robinhood</div>
 
               <div className="mt-5 space-y-7">
                 {reviews.map((r) => (
