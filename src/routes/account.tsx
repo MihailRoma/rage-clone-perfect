@@ -341,24 +341,24 @@ function AccountPage() {
                 <h2 className="font-bold text-base">Your books <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
                 <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">Manage in Author Central</a>
               </div>
-              <div className="mt-4 flex gap-4">
-                <Link to="/" className="shrink-0">
-                  <img src={coverAsset.url} alt="Rage Comics" width={96} height={144} className="w-24 h-auto border border-gray-200" loading="lazy" />
+              <div className="mt-4 flex flex-col sm:flex-row gap-4">
+                <Link to="/" className="shrink-0 self-center sm:self-auto">
+                  <img src={robinhoodCover.url} alt="The Adventures of Robinhood" width={96} height={144} className="w-24 h-auto border border-gray-200" loading="lazy" />
                 </Link>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <Link to="/" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">
-                    Rage Comics - The Definitive Collection, Vol. 2 (400+ comics)
+                    The Adventures of Robinhood
                   </Link>
-                  <div className="text-xs text-[#565959]">Kindle Edition & Paperback · Published 2 November 2011</div>
+                  <div className="text-xs text-[#565959]">Paperback · Published 2 November 2011</div>
                   <div className="flex items-center gap-1 mt-2 text-[#DE7921]">
                     {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
                     <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
-                    <span className="text-[#0F1111] text-sm ml-1">4.4 out of 5 · 188 ratings</span>
+                    <span className="text-[#0F1111] text-sm ml-1">4.5 out of 5 · 126 ratings</span>
                   </div>
                   <p className="text-sm mt-2 leading-5">
-                    The flagship volume. Over 400 author-approved rage comics covering trollface, rage guy, me gusta, fffuuu and the rest of the family.
+                    The classic 1883 retelling of the Robin Hood legend, with timeless adventures in Sherwood Forest for young readers.
                   </p>
-                  <div className="text-xs mt-2">Best Sellers Rank: <span className="font-medium">#9,818 in Humour (Books)</span></div>
+                  <div className="text-xs mt-2">Best Sellers Rank: <span className="font-medium">#12,467 in Children's Literature & Fiction (Books)</span></div>
                 </div>
               </div>
             </section>
