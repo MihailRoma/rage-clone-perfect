@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search,
@@ -61,119 +62,127 @@ const subNav = [
 ];
 
 function Index() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
     <div className="min-h-screen bg-white text-[#0F1111] text-sm">
       {/* Top nav */}
       <header className="bg-[#131921] text-white">
-        <div className="flex items-center px-2 h-[60px] gap-2">
-          <a className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
+        <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-2 py-2 md:flex md:items-center md:h-[60px]">
+          <a className="shrink-0 flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <img src={logoAsset.url} alt="Amazon" className="h-9 w-auto" />
           </a>
-          <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
-            <MapPin className="w-4 h-4 mb-1" />
-            <div className="leading-tight ml-1">
+          <a className="hidden md:flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
+            <MapPin className="w-4 h-4 mb-1 shrink-0" />
+            <div className="leading-tight ml-1 min-w-0">
               <div className="text-xs text-[#cccccc]">Deliver to F.U.</div>
               <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
-          <div className="flex flex-1 h-10 rounded-md overflow-hidden">
-            <button className="bg-[#f3f3f3] text-[#0F1111] px-3 flex items-center gap-1 text-xs border-r border-gray-300 hover:bg-gray-200">
+          <div className="min-w-0 flex h-10 rounded-md overflow-hidden col-span-2 md:col-span-1 md:flex-1">
+            <button className="hidden sm:flex shrink-0 bg-[#f3f3f3] text-[#0F1111] px-3 items-center gap-1 text-xs border-r border-gray-300 hover:bg-gray-200">
               Books <ChevronDown className="w-3 h-3" />
             </button>
             <input
-              className="flex-1 px-3 text-[#0F1111] outline-none bg-white placeholder:text-[#555555]"
+              className="flex-1 min-w-0 px-3 text-[#0F1111] outline-none bg-white placeholder:text-[#555555]"
               placeholder="Search Amazon.co.uk"
             />
-            <button className="bg-[#febd69] hover:bg-[#f3a847] w-12 flex items-center justify-center">
+            <button className="shrink-0 bg-[#febd69] hover:bg-[#f3a847] w-12 flex items-center justify-center">
               <Search className="w-5 h-5 text-[#0F1111]" />
             </button>
           </div>
-          <a className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm gap-1">
+          <a className="hidden md:flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm gap-1 shrink-0">
             <span className="text-base">🇬🇧</span>
             <span className="font-bold text-sm">EN</span>
             <ChevronDown className="w-3 h-3 mt-2 text-[#cccccc]" />
           </a>
-          <div className="relative group h-[50px]">
-            <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent group-hover:border-white rounded-sm leading-tight cursor-pointer">
-              <div className="text-xs">Hello, F.U.</div>
-              <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
-            </a>
-            {/* Dropdown */}
-            <div className="absolute right-0 top-full z-50 hidden group-hover:block text-[#0F1111]">
-              <div className="w-3 h-3 bg-white rotate-45 absolute -top-1 right-24 border-t border-l border-gray-200" />
-              <div className="bg-white shadow-2xl border border-gray-200 rounded-sm flex p-4 gap-6 min-w-[700px]">
-                {/* Your Lists */}
-                <div className="w-48 border-r border-gray-200 pr-6">
-                  <h3 className="font-bold text-base mb-2">Your Lists</h3>
-                  <ul className="space-y-1.5 text-sm">
-                    <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Wish List</a></li>
-                    <li className="pt-2"><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Create a List</a></li>
-                    <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Find a List or Registry</a></li>
-                    <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">AmazonSmile Charity Lists</a></li>
-                    <li className="pt-1">
-                      <a className="hover:text-[#C7511F] hover:underline cursor-pointer">Alexa Shopping List</a>
-                      <div className="text-xs text-[#565959]">2 items</div>
-                    </li>
-                  </ul>
+          <div className="flex items-center gap-1 shrink-0 justify-self-end md:justify-self-auto">
+            <div className="relative group h-[50px]">
+              <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent group-hover:border-white rounded-sm leading-tight cursor-pointer">
+                <div className="text-xs">Hello, F.U.</div>
+                <div className="font-bold flex items-center">
+                  <span className="hidden md:inline">Account & Lists</span>
+                  <span className="md:hidden">Account</span>
+                  <ChevronDown className="w-3 h-3 ml-1" />
                 </div>
-                {/* Your Account */}
-                <div className="w-60">
-                  <h3 className="font-bold text-base mb-2">Your Account</h3>
-                  <ul className="space-y-1.5 text-sm">
-                    <li>
-                      <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">
-                        Account
-                      </Link>
-                    </li>
-                    {[
-                      "Orders",
-                      "Recommendations",
-                      "Browsing History",
-                      "Watchlist",
-                      "Video Purchases & Rentals",
-                      "Kindle Unlimited",
-                      "Content & Devices",
-                      "Subscribe & Save Items",
-                      "Memberships & Subscriptions",
-                      "Prime Membership",
-                      "Amazon Credit Cards",
-                      "Music Library",
-                      "Start a Selling Account",
-                      "Register for a Business Account",
-                      "Switch Accounts",
-                      "Sign Out",
-                    ].map((item) => (
-                      <li key={item}>
-                        <a className="hover:text-[#C7511F] hover:underline cursor-pointer">{item}</a>
+              </a>
+              {/* Dropdown */}
+              <div className="absolute right-0 top-full z-50 hidden group-hover:block text-[#0F1111]">
+                <div className="w-3 h-3 bg-white rotate-45 absolute -top-1 right-24 border-t border-l border-gray-200" />
+                <div className="bg-white shadow-2xl border border-gray-200 rounded-sm flex flex-col md:flex-row p-4 gap-6 min-w-[300px] md:min-w-[700px]">
+                  {/* Your Lists */}
+                  <div className="w-full md:w-48 md:border-r md:border-gray-200 md:pr-6">
+                    <h3 className="font-bold text-base mb-2">Your Lists</h3>
+                    <ul className="space-y-1.5 text-sm">
+                      <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Wish List</a></li>
+                      <li className="pt-2"><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Create a List</a></li>
+                      <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">Find a List or Registry</a></li>
+                      <li><a className="hover:text-[#C7511F] hover:underline cursor-pointer">AmazonSmile Charity Lists</a></li>
+                      <li className="pt-1">
+                        <a className="hover:text-[#C7511F] hover:underline cursor-pointer">Alexa Shopping List</a>
+                        <div className="text-xs text-[#565959]">2 items</div>
                       </li>
-                    ))}
-                  </ul>
+                    </ul>
+                  </div>
+                  {/* Your Account */}
+                  <div className="w-full md:w-60">
+                    <h3 className="font-bold text-base mb-2">Your Account</h3>
+                    <ul className="space-y-1.5 text-sm">
+                      <li>
+                        <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">
+                          Account
+                        </Link>
+                      </li>
+                      {[
+                        "Orders",
+                        "Recommendations",
+                        "Browsing History",
+                        "Watchlist",
+                        "Video Purchases & Rentals",
+                        "Kindle Unlimited",
+                        "Content & Devices",
+                        "Subscribe & Save Items",
+                        "Memberships & Subscriptions",
+                        "Prime Membership",
+                        "Amazon Credit Cards",
+                        "Music Library",
+                        "Start a Selling Account",
+                        "Register for a Business Account",
+                        "Switch Accounts",
+                        "Sign Out",
+                      ].map((item) => (
+                        <li key={item}>
+                          <a className="hover:text-[#C7511F] hover:underline cursor-pointer">{item}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
+            <a className="hidden md:flex px-2 h-[50px] flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight shrink-0">
+              <div className="text-xs">Returns</div>
+              <div className="font-bold">& Orders</div>
+            </a>
+            <a className="flex items-end h-[50px] border border-transparent hover:border-white rounded-sm shrink-0">
+              <ShoppingCart className="w-8 h-8" />
+              <span className="font-bold ml-1 mb-3">0</span>
+              <span className="hidden md:inline font-bold mb-1">Cart</span>
+            </a>
           </div>
-          <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
-            <div className="text-xs">Returns</div>
-            <div className="font-bold">& Orders</div>
-          </a>
-          <a className="px-2 h-[50px] flex items-end border border-transparent hover:border-white rounded-sm">
-            <ShoppingCart className="w-8 h-8" />
-            <span className="font-bold ml-1 mb-3">0</span>
-            <span className="font-bold mb-1">Cart</span>
-          </a>
         </div>
         {/* Sub nav */}
-        <div className="bg-[#232f3e] flex items-center h-[39px] px-2 text-white text-sm">
-          <button className="flex items-center px-3 h-full font-bold border border-transparent hover:border-white rounded-sm">
+        <div className="bg-[#232f3e] flex items-center h-[39px] px-2 text-white text-sm overflow-x-auto">
+          <button className="flex items-center px-3 h-full font-bold border border-transparent hover:border-white rounded-sm shrink-0">
             <Menu className="w-4 h-4 mr-1" /> All
           </button>
           {navLinks.map((l) => (
-            <a key={l} className="px-3 h-full flex items-center border border-transparent hover:border-white rounded-sm whitespace-nowrap">
+            <a key={l} className="px-3 h-full flex items-center border border-transparent hover:border-white rounded-sm whitespace-nowrap shrink-0">
               {l}
               {(l === "Fresh" || l === "Prime") && <ChevronDown className="w-3 h-3 ml-1" />}
             </a>
           ))}
-          <div className="ml-auto flex items-center gap-3 pr-2">
+          <div className="hidden md:flex ml-auto items-center gap-3 pr-2 shrink-0">
             <span className="text-[#febd69] font-bold text-xs leading-tight">
               AMAZON UK<br />
               <span className="text-white text-[10px]">PRIME DELIVERY</span>
@@ -206,36 +215,35 @@ function Index() {
       </div>
 
       {/* Main product layout */}
-      <main className="px-6 py-4 grid grid-cols-12 gap-6 max-w-[1500px]">
+      <main className="px-4 md:px-6 py-4 grid grid-cols-1 md:grid-cols-12 gap-6 max-w-[1500px]">
         {/* Image */}
-        <div className="col-span-3">
+        <div className="md:col-span-3 order-1">
           <img
             src={coverAsset.url}
             alt="The Adventures of Robinhood by Howard Pyle"
             width={704}
             height={1024}
-            className="w-full h-auto"
+            className="w-full h-auto max-w-[280px] md:max-w-none mx-auto md:mx-0"
           />
         </div>
 
         {/* Center details */}
-        <div className="col-span-6">
-          <div className="flex justify-between items-start">
-            <h1 className="text-2xl font-normal leading-tight">
+        <div className="md:col-span-6 order-2 min-w-0">
+          <div className="flex justify-between items-start gap-3 min-w-0">
+            <h1 className="text-xl md:text-2xl font-normal leading-tight min-w-0">
               The Adventures of Robinhood
             </h1>
-            <button className="border border-gray-300 rounded-full w-9 h-9 flex items-center justify-center shadow-sm">
+            <button className="shrink-0 border border-gray-300 rounded-full w-9 h-9 flex items-center justify-center shadow-sm">
               <Share2 className="w-4 h-4" />
             </button>
           </div>
-          <div className="mt-1 text-sm">
+          <div className="mt-1 text-sm flex flex-wrap items-center gap-x-2 gap-y-1">
             <span>by </span>
-            <a className="text-[#007185] hover:text-[#C7511F] hover:underline">Howard Pyle</a>
-            <span> (Author)</span>
-            <span className="mx-2 text-gray-300">|</span>
+            <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">Howard Pyle</Link>
+            <span className="text-gray-300">|</span>
             <span className="font-bold">Format:</span> <span>Paperback</span>
           </div>
-          <div className="mt-2 flex items-center gap-1 text-sm">
+          <div className="mt-2 flex items-center gap-1 text-sm flex-wrap">
             <span className="font-bold">4.5</span>
             <div className="flex text-[#DE7921]">
               {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
@@ -245,15 +253,33 @@ function Index() {
             <a className="text-[#007185] hover:text-[#C7511F] hover:underline ml-1">(126)</a>
           </div>
 
+          {/* Mobile-visible action buttons */}
+          <div className="mt-3 flex flex-wrap gap-2 md:hidden">
+            <Link to="/account" className="flex-1 min-w-[140px] border border-gray-300 rounded-lg py-2 text-sm bg-white hover:bg-gray-50 shadow-sm text-center">
+              Edit Information
+            </Link>
+            <Link to="/account" className="flex-1 min-w-[140px] border border-gray-300 rounded-lg py-2 text-sm bg-white hover:bg-gray-50 shadow-sm text-center">
+              Edit profile
+            </Link>
+          </div>
+
           <hr className="my-3 border-gray-200" />
 
-          <p className="text-sm leading-5">
-            The book is an 1883 novel consisting of a series of episodes in the story of the English outlaw Robin Hood and his band of merry men in Sherwood Forest. Retold and illustrated by Howard Pyle, it remains the classic introduction to the legend for young readers.
-          </p>
+          <div className="text-sm leading-5">
+            <p className={showMore ? "" : "line-clamp-3"}>
+              The book is an 1883 novel consisting of a series of episodes in the story of the English outlaw Robin Hood and his band of merry men in Sherwood Forest. Retold and illustrated by Howard Pyle, it remains the classic introduction to the legend for young readers. Join Robin, Little John, Friar Tuck and Maid Marian in this timeless adventure of courage, friendship and justice in Nottinghamshire.
+            </p>
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="mt-1 text-[#007185] hover:text-[#C7511F] hover:underline text-sm font-medium"
+            >
+              {showMore ? "Show less" : "Show more"}
+            </button>
+          </div>
 
           {/* Details strip */}
           <div className="mt-4 border border-gray-200 rounded-md">
-            <div className="grid grid-cols-5 p-4 text-center text-xs relative">
+            <div className="grid grid-cols-2 md:grid-cols-5 p-4 text-center text-xs relative gap-y-4">
               {[
                 { label: "Print length", icon: <FileText className="w-5 h-5 mx-auto" />, value: <a className="text-[#007185] hover:text-[#C7511F] hover:underline">160 pages <ChevronDown className="inline w-3 h-3" /></a> },
                 { label: "Language", icon: <Globe className="w-5 h-5 mx-auto" />, value: <span className="font-bold">English</span> },
@@ -331,14 +357,14 @@ function Index() {
           <div className="mt-10 border-t border-gray-200 pt-5">
             <h2 className="text-lg font-bold">About the author</h2>
             <p className="text-sm mt-2">Follow authors to get new release updates, plus improved recommendations.</p>
-            <div className="mt-5 flex gap-5">
+            <div className="mt-5 flex flex-col sm:flex-row gap-5">
               <div className="flex flex-col items-center gap-3">
-                <div className="w-32 h-32 rounded-full bg-[#dde4e6] flex items-center justify-center">
+                <div className="w-32 h-32 rounded-full bg-[#dde4e6] flex items-center justify-center shrink-0">
                   <svg className="w-24 h-24 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
                 </div>
                 <Link to="/account" className="px-6 py-1 border border-gray-300 rounded-full text-sm bg-white hover:bg-gray-50 shadow-sm">Edit profile</Link>
               </div>
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <Link to="/account" className="text-[#007185] hover:text-[#C7511F] hover:underline font-bold text-lg">Howard Pyle</Link>
                 <p className="text-sm mt-2">Howard Pyle (1853-1911) was an American illustrator and author, best known for his retellings of classic legends including The Merry Adventures of Robin Hood and King Arthur.</p>
               </div>
@@ -349,7 +375,7 @@ function Index() {
         {/* Buy box stays in right col — close the center wrapper */}
 
         {/* Buy box */}
-        <aside className="col-span-3">
+        <aside className="md:col-span-3 order-3">
           <div className="border border-gray-300 rounded-md p-4">
             <div className="border border-gray-400 rounded-md p-3">
               <div className="font-bold">Paperback</div>
@@ -359,14 +385,14 @@ function Index() {
               This edition of this title is not available for purchase in your country. Choose an available edition from the options above
             </p>
           </div>
-          <button className="mt-3 w-full border border-gray-300 rounded-lg py-2 text-sm bg-white hover:bg-gray-50 shadow-sm">
+          <Link to="/account" className="mt-3 block w-full border border-gray-300 rounded-lg py-2 text-sm bg-white hover:bg-gray-50 shadow-sm text-center">
             Edit Information
-          </button>
+          </Link>
         </aside>
 
         {/* Customer reviews — full width */}
-        <section className="col-span-12 mt-8 border-t border-gray-200 pt-6 grid grid-cols-12 gap-6">
-          <div className="col-span-3">
+        <section className="md:col-span-12 order-4 mt-8 border-t border-gray-200 pt-6 grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="md:col-span-3">
             <h2 className="text-xl font-bold">Customer reviews</h2>
             <div className="flex items-center gap-2 mt-3">
               <div className="flex text-[#DE7921]">
@@ -404,7 +430,7 @@ function Index() {
             </button>
           </div>
 
-          <div className="col-span-9">
+          <div className="md:col-span-9">
             <h3 className="font-bold text-base">Top reviews from United Kingdom</h3>
             <div className="mt-4 space-y-8">
               {[
