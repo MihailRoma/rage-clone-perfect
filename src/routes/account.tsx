@@ -458,6 +458,8 @@ function AccountPage() {
             </div>
           </div>
         </div>
+      )}
+
       {confirmOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setConfirmOpen(false)}>
           <div className="bg-white rounded-md shadow-2xl w-full max-w-md" onClick={(e) => e.stopPropagation()}>
