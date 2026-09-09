@@ -15,7 +15,7 @@ import {
   HardDrive,
   Flag,
 } from "lucide-react";
-import coverAsset from "@/assets/robinhood-cover.jpg.asset.json";
+import coverAsset from "@/assets/robinhood-cover.png.asset.json";
 import logoAsset from "@/assets/amazon-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
