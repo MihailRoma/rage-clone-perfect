@@ -293,7 +293,7 @@ function Index() {
                   <div>{d.value}</div>
                 </div>
               ))}
-              <button className="absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full border border-gray-300 bg-white shadow flex items-center justify-center">
+              <button className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full border border-gray-300 bg-white shadow items-center justify-center">
                 <ChevronRight className="w-4 h-4" />
               </button>
             </div>
