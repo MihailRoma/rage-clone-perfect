@@ -265,29 +265,29 @@ function AccountPage() {
 
         {/* Banner + avatar */}
         <div className="relative">
-          <div className="h-48 bg-gradient-to-b from-[#febd69]/60 to-[#fff3d6] rounded-t-md relative">
+          <div className="h-36 sm:h-48 bg-gradient-to-b from-[#febd69]/60 to-[#fff3d6] rounded-t-md relative">
             <button className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow">
               <Camera className="w-5 h-5 text-gray-600" />
             </button>
           </div>
-          <div className="bg-white px-6 pb-6 pt-2 rounded-b-md border border-gray-200 border-t-0">
-            <div className="flex items-end gap-6 -mt-20">
-              <div className="relative">
-                <div className="w-40 h-40 rounded-full border-4 border-white bg-[#dde4e6] flex items-center justify-center shadow">
-                  <svg className="w-28 h-28 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+          <div className="bg-white px-4 sm:px-6 pb-6 pt-2 rounded-b-md border border-gray-200 border-t-0">
+            <div className="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6 -mt-16 sm:-mt-20">
+              <div className="relative self-center sm:self-auto shrink-0">
+                <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full border-4 border-white bg-[#dde4e6] flex items-center justify-center shadow">
+                  <svg className="w-20 h-20 sm:w-28 sm:h-28 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
                 </div>
                 <button className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center shadow">
                   <Camera className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
-              <div className="flex-1 flex items-center justify-between pt-20">
-                <div>
-                  <h1 className="text-3xl font-normal flex items-center gap-2">
-                    {profile.name} <button onClick={openEdit} aria-label="Edit name"><Pencil className="w-5 h-5 text-gray-500 hover:text-gray-700" /></button>
+              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center justify-between sm:pt-16 gap-3">
+                <div className="min-w-0 text-center sm:text-left">
+                  <h1 className="text-2xl sm:text-3xl font-normal flex items-center justify-center sm:justify-start gap-2 truncate">
+                    {profile.name} <button onClick={openEdit} aria-label="Edit name"><Pencil className="w-5 h-5 text-gray-500 hover:text-gray-700 shrink-0" /></button>
                   </h1>
                   <div className="text-sm text-[#565959] mt-1">Author · Member since March 2011</div>
                 </div>
-                <button onClick={openEdit} className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
+                <button onClick={openEdit} className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm shrink-0">
                   Edit your public profile
                 </button>
               </div>
@@ -296,7 +296,7 @@ function AccountPage() {
         </div>
 
         {/* Body grid */}
-        <div className="grid grid-cols-3 gap-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
           {/* Left: About */}
           <section className="col-span-1 bg-white border border-gray-200 rounded-md p-5">
             <h2 className="font-bold text-base">About <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
