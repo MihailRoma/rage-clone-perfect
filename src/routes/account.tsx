@@ -11,14 +11,14 @@ import {
   Star,
   ThumbsUp,
 } from "lucide-react";
-import coverAsset from "@/assets/rage-comics-cover.png.asset.json";
+import robinhoodCover from "@/assets/robinhood-cover.png.asset.json";
 import logoAsset from "@/assets/amazon-logo.png.asset.json";
 
 export const Route = createFileRoute("/account")({
   head: () => ({
     meta: [
-      { title: "Your Profile: F.U. Derpstein: Amazon.co.uk" },
-      { name: "description", content: "Author profile of F.U. Derpstein" },
+      { title: "Your Profile: Howard Pyle: Amazon.co.uk" },
+      { name: "description", content: "Author profile of Howard Pyle" },
     ],
   }),
   component: AccountPage,
@@ -60,16 +60,16 @@ const reviews: Review[] = [
     stars: 5,
     title: "Great",
     meta: "Reviewed in the United Kingdom on 28 January 2014",
-    body: "I bought this book for my daughter and she loves it. She's a big fan of the meme characters so I thought this would be a good Christmas gift and give her eyes a rest from reading the strips on the computer. You'd definitely have to be a fan of the rage crew to enjoy it.",
+    body: "I bought this book for my daughter and she loves it. She had been asking for the Robin Hood stories after seeing a film, and this edition is the perfect size for her to read on her own. Lovely illustrations too.",
     helpful: 14,
   },
   {
     name: "Treye",
     initial: "T",
     stars: 5,
-    title: "Great rage comic collection!",
+    title: "Timeless classic, lovely edition",
     meta: "Reviewed in the United States on 28 November 2013",
-    body: "Rage comics are undoubtedly my favourite thing on the Interwebz! Whoever F.U. Derpstein is collected the best rage comics and slapped them into one book that I have rated 5 STARRZZZ!",
+    body: "Howard Pyle's version is still the best telling of the Robin Hood legend. Sherwood Forest, Little John, Friar Tuck and the Sheriff of Nottingham — it's all here and it reads beautifully out loud.",
     helpful: 9,
   },
   {
@@ -85,9 +85,9 @@ const reviews: Review[] = [
     name: "javier",
     initial: "J",
     stars: 5,
-    title: "Rage comics review",
+    title: "Adventure classic",
     meta: "Reviewed in the United States on 14 April 2013",
-    body: "This is a hilarious book and it's worth what you're paying for. So if you're debating whether to buy it or not, you should definitely pick this up.",
+    body: "This is a great book and it's worth what you're paying for. So if you're debating whether to buy it or not, you should definitely pick this up.",
     helpful: 6,
   },
   {
@@ -96,43 +96,43 @@ const reviews: Review[] = [
     stars: 5,
     title: "Great read, finished in a night",
     meta: "Reviewed in the United States on 12 January 2013",
-    body: "Hi this was really a great book of rage. Read half the book in one night and the other half on another.",
+    body: "Hi this was really a great book of Robin Hood. Read half the book in on night an th other half on another",
     helpful: 4,
   },
   {
     name: "Megan H.",
     initial: "M",
     stars: 4,
-    title: "Solid collection, slight repeats",
+    title: "Good introduction to the legend",
     meta: "Reviewed in the United Kingdom on 3 September 2015",
-    body: "Massive nostalgia trip. Most of the classics are here — trollface, rage guy, me gusta, fffuuu — but a few panels show up more than once. Still worth it for the price.",
+    body: "My class read this together and the children loved the adventures. A few of the older spellings needed explaining, but the stories themselves are exciting and the pictures help younger readers follow along.",
     helpful: 11,
   },
   {
     name: "Derp_Fan_99",
     initial: "D",
     stars: 5,
-    title: "Trollface forever",
+    title: "Merry men forever",
     meta: "Reviewed in Canada on 19 July 2016",
-    body: "Bought this purely for the trollface chapter and stayed for the whole thing. Derpstein has really good taste in selecting which comics to include.",
+    body: "Bought this purely for the archery chapter and stayed for the whole thing. Pyle has a great ear for dialogue and the characters leap off the page.",
     helpful: 7,
   },
   {
     name: "Sophie",
     initial: "S",
     stars: 3,
-    title: "Fun but very 2012",
+    title: "Fun but a little dated",
     meta: "Reviewed in the United Kingdom on 4 October 2018",
-    body: "If you grew up on early 2010s internet humour you'll love it. If you didn't, a lot of the jokes won't land. It is exactly what it says on the tin though.",
+    body: "The language is old-fashioned in places, which makes it harder for some children. But the adventure is still fun and the illustrations are a nice touch.",
     helpful: 5,
   },
   {
     name: "RageMaster",
     initial: "R",
     stars: 5,
-    title: "Y U NO MAKE VOL 4",
+    title: "Best Robin Hood edition",
     meta: "Reviewed in the United States on 22 February 2017",
-    body: "Read this cover to cover twice. Vol. 1, 2 and 3 are all on my shelf now. Please give us a volume 4 Mr. Derpstein.",
+    body: "Read this cover to cover twice. The Merry Adventures and this one are both on my shelf now. Please give us more illustrated classics Mr. Pyle.",
     helpful: 18,
   },
   {
@@ -141,76 +141,107 @@ const reviews: Review[] = [
     stars: 4,
     title: "Great gift",
     meta: "Reviewed in Germany on 8 December 2019",
-    body: "Gave this to my little brother for his birthday. He laughed for an hour straight, so I'd call that a success.",
+    body: "Gave this to my little brother for his birthday. He devoured the chapters about the tournament and the golden arrow, so I'd call that a success.",
     helpful: 3,
+  },
+  {
+    name: "Priya",
+    initial: "P",
+    stars: 5,
+    title: "Perfect illustrated classic",
+    meta: "Reviewed in India on 22 March 2022",
+    body: "The Everlasting Illustrated Classics edition is durable and the illustrations are charming. A wonderful keepsake for any child's bookshelf.",
+    helpful: 8,
+  },
+  {
+    name: "Oscar W.",
+    initial: "O",
+    stars: 3,
+    title: "Nice but small print",
+    meta: "Reviewed in the United Kingdom on 10 June 2020",
+    body: "Lovely stories, but the print is a little small for my old eyes. I'd recommend the larger paperback if you're reading aloud to a group.",
+    helpful: 5,
   },
 ];
 
 function AccountPage() {
   const [editOpen, setEditOpen] = useState(false);
+  const [confirmOpen, setConfirmOpen] = useState(false);
   const [profile, setProfile] = useState({
-    name: "F.U. Derpstein",
+    name: "Howard Pyle",
     location: "",
     website: "",
     about: "",
   });
   const [draft, setDraft] = useState(profile);
   const openEdit = () => { setDraft(profile); setEditOpen(true); };
-  const saveEdit = () => { setProfile(draft); setEditOpen(false); };
+  const saveEdit = () => {
+    setProfile(draft);
+    setEditOpen(false);
+    if (draft.website.trim()) {
+      setConfirmOpen(true);
+    }
+  };
   return (
     <div className="min-h-screen bg-white text-[#0F1111] text-sm">
 
       {/* Top nav */}
       <header className="bg-[#131921] text-white">
-        <div className="flex items-center px-2 h-[60px] gap-2">
-          <Link to="/" className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
+        <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] items-center gap-2 px-2 py-2 md:flex md:items-center md:h-[60px]">
+          <Link to="/" className="shrink-0 flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <img src={logoAsset.url} alt="Amazon" className="h-9 w-auto" />
           </Link>
-          <a className="flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
-            <MapPin className="w-4 h-4 mb-1" />
-            <div className="leading-tight ml-1">
-              <div className="text-xs text-[#cccccc]">Deliver to F.U.</div>
+          <a className="hidden md:flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
+            <MapPin className="w-4 h-4 mb-1 shrink-0" />
+            <div className="leading-tight ml-1 min-w-0">
+              <div className="text-xs text-[#cccccc]">Deliver to Howard</div>
               <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
-          <div className="flex flex-1 h-10 rounded-md overflow-hidden">
-            <button className="bg-[#f3f3f3] text-[#0F1111] px-3 flex items-center gap-1 text-xs border-r border-gray-300 hover:bg-gray-200">
+          <div className="min-w-0 flex h-10 rounded-md overflow-hidden col-span-2 md:col-span-1 md:flex-1">
+            <button className="hidden sm:flex shrink-0 bg-[#f3f3f3] text-[#0F1111] px-3 items-center gap-1 text-xs border-r border-gray-300 hover:bg-gray-200">
               All <ChevronDown className="w-3 h-3" />
             </button>
-            <input className="flex-1 px-3 text-[#0F1111] outline-none" />
-            <button className="bg-[#febd69] hover:bg-[#f3a847] w-12 flex items-center justify-center">
+            <input className="flex-1 min-w-0 px-3 text-[#0F1111] outline-none bg-white" />
+            <button className="shrink-0 bg-[#febd69] hover:bg-[#f3a847] w-12 flex items-center justify-center">
               <Search className="w-5 h-5 text-[#0F1111]" />
             </button>
           </div>
-          <a className="flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm gap-1">
+          <a className="hidden md:flex items-center px-2 h-[50px] border border-transparent hover:border-white rounded-sm gap-1 shrink-0">
             <span className="text-base">🇬🇧</span>
             <ChevronDown className="w-3 h-3 mt-2 text-[#cccccc]" />
           </a>
-          <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
-            <div className="text-xs">Hello, F.U.</div>
-            <div className="font-bold flex items-center">Account & Lists <ChevronDown className="w-3 h-3 ml-1" /></div>
-          </a>
-          <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight">
-            <div className="text-xs">Returns</div>
-            <div className="font-bold">& Orders</div>
-          </a>
-          <a className="px-2 h-[50px] flex items-end border border-transparent hover:border-white rounded-sm">
-            <ShoppingCart className="w-8 h-8" />
-            <span className="font-bold ml-1 mb-3">0</span>
-            <span className="font-bold mb-1">Cart</span>
-          </a>
+          <div className="flex items-center gap-1 shrink-0 justify-self-end md:justify-self-auto">
+            <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight shrink-0">
+              <div className="text-xs">Hello, Howard</div>
+              <div className="font-bold flex items-center">
+                <span className="hidden md:inline">Account & Lists</span>
+                <span className="md:hidden">Account</span>
+                <ChevronDown className="w-3 h-3 ml-1" />
+              </div>
+            </a>
+            <a className="hidden md:flex px-2 h-[50px] flex-col justify-center border border-transparent hover:border-white rounded-sm leading-tight shrink-0">
+              <div className="text-xs">Returns</div>
+              <div className="font-bold">& Orders</div>
+            </a>
+            <a className="flex items-end h-[50px] border border-transparent hover:border-white rounded-sm shrink-0">
+              <ShoppingCart className="w-8 h-8" />
+              <span className="font-bold ml-1 mb-3">0</span>
+              <span className="hidden md:inline font-bold mb-1">Cart</span>
+            </a>
+          </div>
         </div>
-        <div className="bg-[#232f3e] flex items-center h-[39px] px-2 text-white text-sm">
-          <button className="flex items-center px-3 h-full font-bold border border-transparent hover:border-white rounded-sm">
+        <div className="bg-[#232f3e] flex items-center h-[39px] px-2 text-white text-sm overflow-x-auto">
+          <button className="flex items-center px-3 h-full font-bold border border-transparent hover:border-white rounded-sm shrink-0">
             <Menu className="w-4 h-4 mr-1" /> All
           </button>
           {navLinks.map((l) => (
-            <a key={l} className="px-3 h-full flex items-center border border-transparent hover:border-white rounded-sm whitespace-nowrap">
+            <a key={l} className="px-3 h-full flex items-center border border-transparent hover:border-white rounded-sm whitespace-nowrap shrink-0">
               {l}
               {(l === "Browsing History" || l === "Prime") && <ChevronDown className="w-3 h-3 ml-1" />}
             </a>
           ))}
-          <div className="ml-auto pr-2 font-bold text-xs">Author Central · Manage your books</div>
+          <div className="hidden md:flex ml-auto pr-2 font-bold text-xs shrink-0">Author Central · Manage your books</div>
         </div>
       </header>
 
@@ -234,29 +265,29 @@ function AccountPage() {
 
         {/* Banner + avatar */}
         <div className="relative">
-          <div className="h-48 bg-gradient-to-b from-[#febd69]/60 to-[#fff3d6] rounded-t-md relative">
+          <div className="h-36 sm:h-48 bg-gradient-to-b from-[#febd69]/60 to-[#fff3d6] rounded-t-md relative">
             <button className="absolute bottom-3 right-3 w-9 h-9 rounded-full bg-white/80 flex items-center justify-center shadow">
               <Camera className="w-5 h-5 text-gray-600" />
             </button>
           </div>
-          <div className="bg-white px-6 pb-6 pt-2 rounded-b-md border border-gray-200 border-t-0">
-            <div className="flex items-end gap-6 -mt-20">
-              <div className="relative">
-                <div className="w-40 h-40 rounded-full border-4 border-white bg-[#dde4e6] flex items-center justify-center shadow">
-                  <svg className="w-28 h-28 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
+          <div className="bg-white px-4 sm:px-6 pb-6 pt-2 rounded-b-md border border-gray-200 border-t-0">
+            <div className="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6 -mt-16 sm:-mt-20">
+              <div className="relative self-center sm:self-auto shrink-0">
+                <div className="w-28 h-28 sm:w-40 sm:h-40 rounded-full border-4 border-white bg-[#dde4e6] flex items-center justify-center shadow">
+                  <svg className="w-20 h-20 sm:w-28 sm:h-28 text-[#b8c4c7]" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M12 14c-4 0-8 2-8 6v2h16v-2c0-4-4-6-8-6z"/></svg>
                 </div>
                 <button className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/90 flex items-center justify-center shadow">
                   <Camera className="w-4 h-4 text-gray-600" />
                 </button>
               </div>
-              <div className="flex-1 flex items-center justify-between pt-20">
-                <div>
-                  <h1 className="text-3xl font-normal flex items-center gap-2">
-                    {profile.name} <button onClick={openEdit} aria-label="Edit name"><Pencil className="w-5 h-5 text-gray-500 hover:text-gray-700" /></button>
+              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center justify-between sm:pt-16 gap-3">
+                <div className="min-w-0 text-center sm:text-left">
+                  <h1 className="text-2xl sm:text-3xl font-normal flex items-center justify-center sm:justify-start gap-2 truncate">
+                    {profile.name} <button onClick={openEdit} aria-label="Edit name"><Pencil className="w-5 h-5 text-gray-500 hover:text-gray-700 shrink-0" /></button>
                   </h1>
                   <div className="text-sm text-[#565959] mt-1">Author · Member since March 2011</div>
                 </div>
-                <button onClick={openEdit} className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm">
+                <button onClick={openEdit} className="bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] rounded-full px-5 py-2 text-sm font-medium shadow-sm shrink-0">
                   Edit your public profile
                 </button>
               </div>
@@ -265,15 +296,15 @@ function AccountPage() {
         </div>
 
         {/* Body grid */}
-        <div className="grid grid-cols-3 gap-5 mt-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-5">
           {/* Left: About */}
-          <section className="col-span-1 bg-white border border-gray-200 rounded-md p-5">
+          <section className="md:col-span-1 bg-white border border-gray-200 rounded-md p-5">
             <h2 className="font-bold text-base">About <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
             <p className="text-sm mt-3 leading-5 whitespace-pre-wrap">
               {profile.about}
             </p>
             <h3 className="font-bold mt-5 text-sm">Author rank</h3>
-            <p className="text-sm mt-1">#9,818 in Humour (Books)</p>
+            <p className="text-sm mt-1">#12,467 in Children's Literature & Fiction (Books)</p>
             <h3 className="font-bold mt-5 text-sm">Location</h3>
             <p className="text-sm mt-1">{profile.location}</p>
             <h3 className="font-bold mt-5 text-sm">Member since</h3>
@@ -283,11 +314,11 @@ function AccountPage() {
           </section>
 
           {/* Right column */}
-          <div className="col-span-2 space-y-5">
+          <div className="md:col-span-2 space-y-5">
             {/* Insights */}
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <h2 className="font-bold text-base">Insights</h2>
-              <div className="grid grid-cols-5 gap-4 mt-4 text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mt-4 text-center">
                 {[
                   { n: 412, label: "books sold (k)", v: "Private" },
                   { n: 188, label: "reviews", v: "Public" },
@@ -310,24 +341,24 @@ function AccountPage() {
                 <h2 className="font-bold text-base">Your books <span className="text-xs text-[#565959] font-normal ml-1">Public</span></h2>
                 <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">Manage in Author Central</a>
               </div>
-              <div className="mt-4 flex gap-4">
-                <Link to="/" className="shrink-0">
-                  <img src={coverAsset.url} alt="Rage Comics" width={96} height={144} className="w-24 h-auto border border-gray-200" loading="lazy" />
+              <div className="mt-4 flex flex-col sm:flex-row gap-4">
+                <Link to="/" className="shrink-0 self-center sm:self-auto">
+                  <img src={robinhoodCover.url} alt="The Adventures of Robinhood" width={96} height={144} className="w-24 h-auto border border-gray-200" loading="lazy" />
                 </Link>
-                <div className="flex-1">
+                <div className="flex-1 min-w-0">
                   <Link to="/" className="text-[#007185] hover:text-[#C7511F] hover:underline font-medium">
-                    Rage Comics - The Definitive Collection, Vol. 2 (400+ comics)
+                    The Adventures of Robinhood
                   </Link>
-                  <div className="text-xs text-[#565959]">Kindle Edition & Paperback · Published 2 November 2011</div>
+                  <div className="text-xs text-[#565959]">Paperback · Published 2 November 2011</div>
                   <div className="flex items-center gap-1 mt-2 text-[#DE7921]">
                     {[0,1,2,3].map(i => <Star key={i} className="w-4 h-4 fill-[#DE7921]" />)}
                     <Star className="w-4 h-4 fill-[#DE7921]" strokeWidth={0} style={{clipPath:"inset(0 50% 0 0)"}} />
-                    <span className="text-[#0F1111] text-sm ml-1">4.4 out of 5 · 188 ratings</span>
+                    <span className="text-[#0F1111] text-sm ml-1">4.5 out of 5 · 126 ratings</span>
                   </div>
                   <p className="text-sm mt-2 leading-5">
-                    The flagship volume. Over 400 author-approved rage comics covering trollface, rage guy, me gusta, fffuuu and the rest of the family.
+                    The classic 1883 retelling of the Robin Hood legend, with timeless adventures in Sherwood Forest for young readers.
                   </p>
-                  <div className="text-xs mt-2">Best Sellers Rank: <span className="font-medium">#9,818 in Humour (Books)</span></div>
+                  <div className="text-xs mt-2">Best Sellers Rank: <span className="font-medium">#12,467 in Children's Literature & Fiction (Books)</span></div>
                 </div>
               </div>
             </section>
@@ -336,9 +367,9 @@ function AccountPage() {
             <section className="bg-white border border-gray-200 rounded-md p-5">
               <div className="flex items-center justify-between">
                 <h2 className="font-bold text-base">Reader reviews of your books</h2>
-                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all 188</a>
+                <a className="text-[#007185] hover:text-[#C7511F] hover:underline text-sm">See all 126</a>
               </div>
-              <div className="text-xs text-[#565959] mt-1">Rage Comics — The Definitive Collection, Vol. 2</div>
+              <div className="text-xs text-[#565959] mt-1">The Adventures of Robinhood</div>
 
               <div className="mt-5 space-y-7">
                 {reviews.map((r) => (
@@ -424,6 +455,36 @@ function AccountPage() {
             <div className="flex justify-end gap-2 px-5 py-3 border-t border-gray-200 bg-[#f7f7f7] rounded-b-md">
               <button onClick={() => setEditOpen(false)} className="px-4 py-1.5 border border-gray-400 rounded-full text-sm bg-white hover:bg-gray-50">Cancel</button>
               <button onClick={saveEdit} className="px-5 py-1.5 rounded-full text-sm font-medium bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] shadow-sm">Save</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {confirmOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setConfirmOpen(false)}>
+          <div className="bg-white rounded-md shadow-2xl w-full max-w-md" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200">
+              <h2 className="text-lg font-bold">Update submitted for review</h2>
+              <button onClick={() => setConfirmOpen(false)} className="text-gray-500 hover:text-gray-800 text-xl leading-none">×</button>
+            </div>
+            <div className="px-5 py-5 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#f0f8f4] text-[#5a8b76] flex items-center justify-center shrink-0">✓</div>
+                <div>
+                  <p className="text-sm leading-5">
+                    Your application for a new website and bio for <span className="font-bold">The Adventures of Robinhood</span> has been submitted and will be reviewed by Amazon Author Central within 2-3 business days.
+                  </p>
+                  <p className="text-sm text-[#565959] mt-2 leading-5">
+                    You'll receive an email at the address associated with your account once the changes are approved or if we need any further information.
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm text-[#565959] leading-5">
+                Until the review is complete, your public author page will continue to display your existing details.
+              </p>
+            </div>
+            <div className="flex justify-end gap-2 px-5 py-3 border-t border-gray-200 bg-[#f7f7f7] rounded-b-md">
+              <button onClick={() => setConfirmOpen(false)} className="px-5 py-1.5 rounded-full text-sm font-medium bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] shadow-sm">OK</button>
             </div>
           </div>
         </div>
