@@ -78,7 +78,7 @@ function Index() {
           </a>
           <div className="flex flex-1 h-10 rounded-md overflow-hidden">
             <button className="bg-[#f3f3f3] text-[#0F1111] px-3 flex items-center gap-1 text-xs border-r border-gray-300 hover:bg-gray-200">
-              Kindle Store <ChevronDown className="w-3 h-3" />
+              Books <ChevronDown className="w-3 h-3" />
             </button>
             <input
               className="flex-1 px-3 text-[#0F1111] outline-none bg-white placeholder:text-[#555555]"
