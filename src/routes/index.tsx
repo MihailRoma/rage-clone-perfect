@@ -75,7 +75,7 @@ function Index() {
           <a className="hidden md:flex items-end px-2 h-[50px] border border-transparent hover:border-white rounded-sm">
             <MapPin className="w-4 h-4 mb-1 shrink-0" />
             <div className="leading-tight ml-1 min-w-0">
-              <div className="text-xs text-[#cccccc]">Deliver to F.U.</div>
+              <div className="text-xs text-[#cccccc]">Deliver to Howard</div>
               <div className="text-sm font-bold">London SW1A 1AA</div>
             </div>
           </a>
@@ -99,7 +99,7 @@ function Index() {
           <div className="flex items-center gap-1 shrink-0 justify-self-end md:justify-self-auto">
             <div className="relative group h-[50px]">
               <a className="px-2 h-[50px] flex flex-col justify-center border border-transparent group-hover:border-white rounded-sm leading-tight cursor-pointer">
-                <div className="text-xs">Hello, F.U.</div>
+                <div className="text-xs">Hello, Howard</div>
                 <div className="font-bold flex items-center">
                   <span className="hidden md:inline">Account & Lists</span>
                   <span className="md:hidden">Account</span>
