@@ -458,6 +458,34 @@ function AccountPage() {
             </div>
           </div>
         </div>
+      {confirmOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" onClick={() => setConfirmOpen(false)}>
+          <div className="bg-white rounded-md shadow-2xl w-full max-w-md" onClick={(e) => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-5 py-3 border-b border-gray-200">
+              <h2 className="text-lg font-bold">Update submitted for review</h2>
+              <button onClick={() => setConfirmOpen(false)} className="text-gray-500 hover:text-gray-800 text-xl leading-none">×</button>
+            </div>
+            <div className="px-5 py-5 space-y-4">
+              <div className="flex items-start gap-3">
+                <div className="w-8 h-8 rounded-full bg-[#f0f8f4] text-[#5a8b76] flex items-center justify-center shrink-0">✓</div>
+                <div>
+                  <p className="text-sm leading-5">
+                    Your application for a new website and bio for <span className="font-bold">The Adventures of Robinhood</span> has been submitted and will be reviewed by Amazon Author Central within 2-3 business days.
+                  </p>
+                  <p className="text-sm text-[#565959] mt-2 leading-5">
+                    You'll receive an email at the address associated with your account once the changes are approved or if we need any further information.
+                  </p>
+                </div>
+              </div>
+              <p className="text-sm text-[#565959] leading-5">
+                Until the review is complete, your public author page will continue to display your existing details.
+              </p>
+            </div>
+            <div className="flex justify-end gap-2 px-5 py-3 border-t border-gray-200 bg-[#f7f7f7] rounded-b-md">
+              <button onClick={() => setConfirmOpen(false)} className="px-5 py-1.5 rounded-full text-sm font-medium bg-[#FFD814] hover:bg-[#F7CA00] border border-[#FCD200] shadow-sm">OK</button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
